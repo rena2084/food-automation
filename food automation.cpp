@@ -65,7 +65,7 @@ void gotoxy(int x, int y) {
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-//------------------------ textColor -------------------------
+//------------------------ TextColor -------------------------
 
 void text_color(int x){
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
