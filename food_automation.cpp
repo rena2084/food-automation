@@ -17,24 +17,24 @@ private:
 public:
     Student();
     void print()const;
-    void reserve_meal(Meal);
-    bool cancel_reservation(Reservation);
+    void reserveMeal(Meal);
+    bool cancelReservation(Reservation);
 
     //----- setters -----
-    void set_user_id();
-    void set_student_id();
-    void set_name();
-    void set_email();
-    void set_balance();
-    void set_is_active();
+    void setUserId();
+    void setStudentId();
+    void setName();
+    void setEmail();
+    void setBalance();
+    void setIsActive();
 
     //----- getters -----
-    int get_user_id();
-    string get_student_id();
-    string get_name();
-    string get_email();
-    float get_balance();
-    bool get_is_active();
+    int getUserId()const;
+    string getStudentId()const;
+    string getName()const;
+    string getEmail()const;
+    float getBalance()const;
+    bool getIsActive()const;
 };
 
 class Reservation{
@@ -44,22 +44,26 @@ class Reservation{
     Meal _meal;
     Enum _status;
     time_t _created_at;
+public:
+    Reservation();
+    void print()const;
+    bool cancel();
 
     //----- setters -----
-    void set_reservation_id();
-    void set_student();
-    void set_dHall();
-    void set_meal();
-    void set_status();
-    void set_created_at();
+    void setReservationId();
+    void setStudent();
+    void setDHall();
+    void setMeal();
+    void setStatus();
+    void setCreatedAt();
 
     //----- getters -----
-    int get_reservation_id();
-    Student get_student();
-    DiningHall get_dHall();
-    Meal get_meal();
-    Enum get_status();
-    time_t get_created_at();
+    int getReservationId()const;
+    Student getStudent()const;
+    DiningHall getDHall()const;
+    Meal getMeal()const;
+    Enum getStatus()const;
+    time_t getCreatedAt()const;
 };
 
 class Meal{
