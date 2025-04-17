@@ -6,6 +6,7 @@
 using namespace sdt;
 
 
+//------------ Student Class ------------
 class Student{
 private:
     int _user_id;
@@ -37,6 +38,7 @@ public:
     bool getIsActive()const;
 };
 
+//---------- Reservation Class ----------
 class Reservation{
 private:
     int _reservation_id;
@@ -67,6 +69,7 @@ public:
     time_t getCreatedAt()const;
 };
 
+//------------- Meal Class --------------
 class Meal{
 private:
     int _meal_id;
@@ -95,8 +98,28 @@ public:
     vector<Meal> getSideItem()const;
 };
 
+//---------- DiningHall Class -----------
 class DiningHall{
+private:
+    int _hall_id;
+    string _name;
+    string _address;
+    int capacity;
+public:
+    DiningHall();
+    void print()const;
 
+    //----- setters -----
+    void setHallId();
+    void setName();
+    void setAddress();
+    void setCapacity();
+
+    //----- getters -----
+    int getHallId()const;
+    string getName()const;
+    string getAddress()const;
+    int getCapacity()const;
 };
 
 
@@ -107,7 +130,7 @@ void text_color(int);
 void cursor(bool);
 
 
-
+//------------------------------------------------------------ Main ------------------------------------------------------------
 
 int main()
 {
