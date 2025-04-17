@@ -49,6 +49,16 @@ class DiningHall{
 
 };
 
+
+
+
+void gotoxy(int, int);
+void text_color(int);
+void cursor(bool);
+
+
+
+
 int main()
 {
 
@@ -70,4 +80,15 @@ void gotoxy(int x, int y) {
 void text_color(int x){
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(h, x);
+}
+
+//---------------------- cursor_status -----------------------
+
+void cursor_status(bool status){
+    HANDLE hStdOut = NULL;
+    CONSOLE_CURSOR_INFO curInfo;
+    hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    GetConsoleCursorInfo(hStdOut, &curInfo);
+    curInfo.bVisible = status;
+    SetConsoleCursorInfo(hStdOut, &curInfo);
 }
