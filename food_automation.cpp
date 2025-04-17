@@ -38,6 +38,7 @@ public:
 };
 
 class Reservation{
+private:
     int _reservation_id;
     Student _student;
     DiningHall _dHall;
@@ -67,7 +68,31 @@ public:
 };
 
 class Meal{
+private:
+    int _meal_id;
+    string _name;
+    float _price;
+    Enum _meal_type;
+    vector<Meal> _side_item;
+public:
+    Meal();
+    void print()const;
+    void updatePrice(float);
+    void addSideItem(string);
 
+    //----- setters -----
+    void setMealId();
+    void setName();
+    void setPrice();
+    void setMealType();
+    void setSideItem();
+
+    //----- getters -----
+    int getMealId()const;
+    string getName()const;
+    float getPrice()const;
+    Enum getMealType()const;
+    vector<Meal> getSideItem()const;
 };
 
 class DiningHall{
