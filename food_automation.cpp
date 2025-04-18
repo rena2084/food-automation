@@ -1,11 +1,21 @@
-#include <iosteam>
+#include <iostream>
 #include <vector>
 #include <string.h>
 #include <windows.h>
 
-using namespace sdt;
+using namespace std;
 
 
+class Student;
+class Reservation;
+class Meal;
+class DiningHall;
+
+
+//------------- Enum Class --------------
+class Enum{
+
+};
 
 //------------ Student Class ------------
 class Student{
@@ -44,8 +54,8 @@ class Reservation{
 private:
     int _reservation_id;
     Student _student;
-    DiningHall _dHall;
-    Meal _meal;
+    DiningHall* _dining_hall;
+    Meal* _meal;
     Enum _status;
     time_t _created_at;
 public:
@@ -127,7 +137,7 @@ public:
 
 
 void gotoxy(int, int);
-void text_color(int);
+void textColor(int);
 void cursor(bool);
 
 
@@ -142,27 +152,74 @@ int main()
 
 //-------------------------- gotoxy --------------------------
 
-void gotoxy(int x, int y) {
+void gotoxy(int x, int y)
+{
     COORD coord;
     coord.X = x;
     coord.Y = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-//------------------------ text_color ------------------------
+//------------------------ textColor -------------------------
 
-void text_color(int x){
+void textColor(int x)
+{
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(h, x);
 }
 
-//---------------------- cursor_status -----------------------
+//----------------------- cursorStatus -----------------------
 
-void cursor_status(bool status){
+void cursor_status(bool status)
+{
     HANDLE hStdOut = NULL;
     CONSOLE_CURSOR_INFO curInfo;
     hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
     GetConsoleCursorInfo(hStdOut, &curInfo);
     curInfo.bVisible = status;
     SetConsoleCursorInfo(hStdOut, &curInfo);
+}
+
+//------------------------------------ Student Class ------------------------------------
+
+Student::Student()
+{
+    _user_id = 0;
+    _student_id = "0000000000";
+    _name = "Unknown";
+    _email = _student_id + ".gmail.com";
+    _balance = 0.00;
+    _is_active = true;
+}
+
+//---------------------------------- Reservation Class ----------------------------------
+
+Reservation::Reservation()
+{
+    _reservation_id = 0;
+    _dining_hall = new DiningHall();
+    _meal = new Meal();
+    _status;
+    _created_at;
+}
+
+//------------------------------------- Meal Class --------------------------------------
+
+Meal::Meal()
+{
+    _meal_id = 0;
+    _name = "Unknown";
+    _price = 15000.00;
+    _meal_type;
+    _side_item;
+}
+
+//---------------------------------- DiningHall Class -----------------------------------
+
+DiningHall::DiningHall()
+{
+    int _hall_id = 0;
+    string _name = "University";
+    string _address = "---";
+    int capacity = 200;
 }
