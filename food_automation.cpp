@@ -33,12 +33,12 @@ public:
     bool cancelReservation(Reservation);
 
     //----- setters -----
-    void setUserId();
-    void setStudentId();
-    void setName();
-    void setEmail();
-    void setBalance();
-    void setIsActive();
+    void setUserId(int);
+    void setStudentId(string);
+    void setName(string);
+    void setEmail(string);
+    void setBalance(float);
+    void setIsActive(bool);
 
     //----- getters -----
     int getUserId()const;
@@ -64,12 +64,12 @@ public:
     bool cancel();
 
     //----- setters -----
-    void setReservationId();
-    void setStudent();
-    void setDHall();
-    void setMeal();
-    void setStatus();
-    void setCreatedAt();
+    void setReservationId(int);
+    void setStudent(Student);
+    void setDHall(DiningHall);
+    void setMeal(Meal);
+    void setStatus(Enum);
+    void setCreatedAt(time_t);
 
     //----- getters -----
     int getReservationId()const;
@@ -95,11 +95,11 @@ public:
     void addSideItem(string);
 
     //----- setters -----
-    void setMealId();
-    void setName();
-    void setPrice();
-    void setMealType();
-    void setSideItem();
+    void setMealId(int);
+    void setName(string);
+    void setPrice(float);
+    void setMealType(Enum);
+    void setSideItem(vector<Meal>);
 
     //----- getters -----
     int getMealId()const;
@@ -115,16 +115,16 @@ private:
     int _hall_id;
     string _name;
     string _address;
-    int capacity;
+    int _capacity;
 public:
     DiningHall();
     void print()const;
 
     //----- setters -----
-    void setHallId();
-    void setName();
-    void setAddress();
-    void setCapacity();
+    void setHallId(int);
+    void setName(string);
+    void setAddress(string);
+    void setCapacity(int);
 
     //----- getters -----
     int getHallId()const;
@@ -192,6 +192,40 @@ Student::Student()
     _is_active = true;
 }
 
+//----- setters -----
+void Student::setUserId(int);
+void Student::setStudentId(string);
+void Student::setName(string);
+void Student::setEmail(string);
+void Student::setBalance(float);
+void Student::setIsActive(bool);
+
+//----- getters -----
+int Student::getUserId()const
+{
+    return _user_id;
+}
+string Student::getStudentId()const
+{
+    return _student_id;
+}
+string Student::getName()const
+{
+    return _name;
+}
+string Student::getEmail()const
+{
+    return _email;
+}
+float Student::getBalance()const
+{
+    return _balance;
+}
+bool Student::getIsActive()const
+{
+    return _is_active;
+}
+
 //---------------------------------- Reservation Class ----------------------------------
 
 Reservation::Reservation()
@@ -201,6 +235,40 @@ Reservation::Reservation()
     _meal = new Meal();
     _status;
     _created_at;
+}
+
+//----- setters -----
+void Reservation::setReservationId(int);
+void Reservation::setStudent(Student);
+void Reservation::setDHall(DiningHall);
+void Reservation::setMeal(Meal);
+void Reservation::setStatus(Enum);
+void Reservation::setCreatedAt(time_t);
+
+//----- getters -----
+int Reservation::getReservationId()const
+{
+    return _reservation_id;
+}
+Student Reservation::getStudent()const
+{
+    return _student;
+}
+DiningHall Reservation::getDHall()const
+{
+    return _dining_hall;
+}
+Meal Reservation::getMeal()const
+{
+    return _meal;
+}
+Enum Reservation::getStatus()const
+{
+    return _status;
+}
+time_t Reservation::getCreatedAt()const
+{
+    return _created_at;
 }
 
 //------------------------------------- Meal Class --------------------------------------
@@ -214,6 +282,35 @@ Meal::Meal()
     _side_item;
 }
 
+//----- setters -----
+void Enum Meal::setMealId(int);
+void Enum Meal::setName(string);
+void Enum Meal::setPrice(float);
+void Enum Meal::setMealType(Enum);
+void Enum Meal::setSideItem(vector<Meal>);
+
+//----- getters -----
+int Meal::getMealId()const
+{
+    return _meal_id;
+}
+string Meal::getName()const
+{
+    return _name;
+}
+float Meal::getPrice()const
+{
+    return _price;
+}
+Enum Meal::getMealType()const
+{
+    return _meal_type;
+}
+vector<Meal> Meal::getSideItem()const
+{
+    return _side_item;
+}
+
 //---------------------------------- DiningHall Class -----------------------------------
 
 DiningHall::DiningHall()
@@ -221,5 +318,29 @@ DiningHall::DiningHall()
     int _hall_id = 0;
     string _name = "University";
     string _address = "---";
-    int capacity = 200;
+    int _capacity = 200;
+}
+
+//----- setters -----
+void DiningHall::setHallId(int);
+void DiningHall::setName(string);
+void DiningHall::setAddress(string);
+void DiningHall::setCapacity(int);
+
+//----- getters -----
+int DiningHall::getHallId()const
+{
+    return _hall_id;
+}
+string DiningHall::getName()const
+{
+    return _name;
+}
+string DiningHall::getAddress()const
+{
+    return _address;
+}
+int DiningHall::getCapacity()const
+{
+    return _capacity;
 }
