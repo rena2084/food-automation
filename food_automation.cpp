@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string.h>
+#include <time.h>
 #include <windows.h>
 
 using namespace std;
@@ -11,10 +12,24 @@ class Reservation;
 class Meal;
 class DiningHall;
 
+void gotoxy(int, int);
+void textColor(int);
+void cursor(bool);
 
-//------------- Enum Class --------------
-class Enum{
 
+//------ ReservationStatus Class --------
+enum class ReservationStatus{
+    SUCCESS,
+    CANCELLED,
+    SELECTED,
+    FAILEED,
+};
+
+//----------- MealType Class ------------
+enum class MealType{
+    BREAKFAST,
+    LUNCH,
+    DINNER,
 };
 
 //------------ Student Class ------------
@@ -27,7 +42,7 @@ private:
     float _balance;
     bool _is_active;
 public:
-    Student();
+    Student(unsigned int = 0, string = "0000000000", string = "Unknown", string = "Unknown@gmail.com", float = 0.00, bool = true);
     void print()const;
     void reserveMeal(Meal);
     bool cancelReservation(Reservation);
@@ -56,10 +71,10 @@ private:
     Student _student;
     DiningHall* _dining_hall;
     Meal* _meal;
-    Enum _status;
+    ReservationStatus _status;
     time_t _created_at;
 public:
-    Reservation();
+    Reservation(unsigned int = 0, ReservationStatus = SELECTED, time_t = time(nullptr));
     void print()const;
     bool cancel();
 
@@ -68,7 +83,7 @@ public:
     void setStudent(Student);
     void setDHall(DiningHall);
     void setMeal(Meal);
-    void setStatus(Enum);
+    void setStatus(ReservationStatus);
     void setCreatedAt(time_t);
 
     //----- getters -----
@@ -76,7 +91,7 @@ public:
     Student getStudent()const;
     DiningHall getDHall()const;
     Meal getMeal()const;
-    Enum getStatus()const;
+    ReservationStatus getStatus()const;
     time_t getCreatedAt()const;
 };
 
@@ -86,10 +101,10 @@ private:
     unsigned int _meal_id;
     string _name;
     float _price;
-    Enum _meal_type;
-    vector<Meal> _side_item;
+    MealType _meal_type;
+    vector<string> _side_item;
 public:
-    Meal();
+    Meal(unsigned int = 0, string = "Unknown", float = 15000.0f, MealType = LUNCH, vector<string> = {"not selected"});
     void print()const;
     void updatePrice(float);
     void addSideItem(string);
@@ -98,14 +113,14 @@ public:
     void setMealId(unsigned int);
     void setName(string);
     void setPrice(float);
-    void setMealType(Enum);
+    void setMealType(MealType);
     void setSideItem(vector<Meal>);
 
     //----- getters -----
     int getMealId()const;
     string getName()const;
     float getPrice()const;
-    Enum getMealType()const;
+    MealType getMealType()const;
     vector<Meal> getSideItem()const;
 };
 
@@ -117,7 +132,7 @@ private:
     string _address;
     int _capacity;
 public:
-    DiningHall();
+    DiningHall(unsigned int = 0, string = "University", string = "...", int = 200);
     void print()const;
 
     //----- setters -----
@@ -136,9 +151,7 @@ public:
 
 
 
-void gotoxy(int, int);
-void textColor(int);
-void cursor(bool);
+
 
 
 //------------------------------------------------------------ Main ------------------------------------------------------------
@@ -182,14 +195,14 @@ void cursor_status(bool status)
 
 //------------------------------------ Student Class ------------------------------------
 
-Student::Student()
+Student::Student(unsigned int user_id, string student_id, string name, string email, float balance, bool is_active)
 {
-    _user_id = 0;
-    _student_id = "0000000000";
-    _name = "Unknown";
-    _email = _student_id + ".gmail.com";
-    _balance = 0.00;
-    _is_active = true;
+    setUserId(user_id);
+    setStudentId(student_id);
+    setName(name);
+    setEmail(email);
+    setBalance(balance);
+    setIsActive(is_active);
 }
 
 //----- setters -----
@@ -246,13 +259,13 @@ bool Student::getIsActive()const
 
 //---------------------------------- Reservation Class ----------------------------------
 
-Reservation::Reservation()
+Reservation::Reservation(unsigned int reservation_id, ReservationStatus status, time_t created_at)
 {
-    _reservation_id = 0;
+    setReservationId(reservation_id);
     _dining_hall = new DiningHall();
     _meal = new Meal();
-    _status;
-    _created_at;
+    setStatus(status);
+    setCreatedAt(created_at);
 }
 
 //----- setters -----
@@ -272,7 +285,7 @@ void Reservation::setMeal(Meal meal)
 {
 
 }
-void Reservation::setStatus(Enum status)
+void Reservation::setStatus(ReservationStatus status)
 {
 
 }
@@ -298,7 +311,7 @@ Meal Reservation::getMeal()const
 {
     return *_meal;
 }
-Enum Reservation::getStatus()const
+ReservationStatus Reservation::getStatus()const
 {
     return _status;
 }
@@ -309,13 +322,13 @@ time_t Reservation::getCreatedAt()const
 
 //------------------------------------- Meal Class --------------------------------------
 
-Meal::Meal()
+Meal::Meal(unsigned int meal_id, string name, float price, MealType meal_type, vector<string> side_item)
 {
-    _meal_id = 0;
-    _name = "Unknown";
-    _price = 15000.00;
-    _meal_type;
-    _side_item;
+    setMealId(meal_id);
+    setName(name);
+    setPrice(price);
+    setMealType(meal_type);
+    setSideItem(side_item);
 }
 
 //----- setters -----
@@ -331,7 +344,7 @@ void Meal::setPrice(float price)
 {
 
 }
-void Meal::setMealType(Enum meal_type)
+void Meal::setMealType(MealType meal_type)
 {
 
 }
@@ -353,7 +366,7 @@ float Meal::getPrice()const
 {
     return _price;
 }
-Enum Meal::getMealType()const
+MealType Meal::getMealType()const
 {
     return _meal_type;
 }
@@ -364,12 +377,12 @@ vector<Meal> Meal::getSideItem()const
 
 //---------------------------------- DiningHall Class -----------------------------------
 
-DiningHall::DiningHall()
+DiningHall::DiningHall(unsigned int hall_id, string name, string address, int capacity)
 {
-    int _hall_id = 0;
-    string _name = "University";
-    string _address = "---";
-    int _capacity = 200;
+    setHallId(hall_id);
+    setName(name);
+    setAddress(address);
+    setCapacity(capacity);
 }
 
 //----- setters -----
