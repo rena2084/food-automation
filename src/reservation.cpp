@@ -4,30 +4,30 @@ using namespace std;
 
 //---------------------------------- Reservation Class ----------------------------------
 
-Reservation::Reservation(unsigned int reservation_id, ReservationStatus status, time_t created_at)
+Reservation::Reservation(unsigned int reservationId, ReservationStatus status, time_t createdAt)
 {
-    setReservationId(reservation_id);
+    setReservationId(reservationId);
     setStudent();
     setDiningHall();
     setMeal();
     setStatus(status);
-    setCreatedAt(created_at);
+    setCreatedAt(createdAt);
 }
 
-//----- setters -----
-void Reservation::setReservationId(unsigned int reservation_id)
+//-------------------- setters --------------------
+void Reservation::setReservationId(unsigned int reservationId)
 {
 
 }
-void Reservation::setStudent(Student student)
+void Reservation::setStudent()
 {
 
 }
-void Reservation::setDHall(DiningHall dining_hall)
+void Reservation::setDiningHall()
 {
 
 }
-void Reservation::setMeal(Meal meal)
+void Reservation::setMeal()
 {
 
 }
@@ -35,27 +35,27 @@ void Reservation::setStatus(ReservationStatus status)
 {
 
 }
-void Reservation::setCreatedAt(time_t created_at)
+void Reservation::setCreatedAt(time_t createdAt)
 {
 
 }
 
-//----- getters -----
+//-------------------- getters --------------------
 int Reservation::getReservationId()const
 {
-    return _reservation_id;
+    return _reservationId;
 }
 Student Reservation::getStudent()const
 {
-    return _student;
+    return *_student;
 }
 DiningHall Reservation::getDHall()const
 {
-    return *_dining_hall;
+    return _diningHall;
 }
 Meal Reservation::getMeal()const
 {
-    return *_meal;
+    return _meal;
 }
 ReservationStatus Reservation::getStatus()const
 {
@@ -63,5 +63,5 @@ ReservationStatus Reservation::getStatus()const
 }
 time_t Reservation::getCreatedAt()const
 {
-    return _created_at;
+    return _createdAt;
 }

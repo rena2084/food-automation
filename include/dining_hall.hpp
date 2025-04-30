@@ -1,12 +1,13 @@
 #ifndef DINING_HALL_H
 #define DINING_HALL_H
+#include <string>
 using namespace std;
 
 
 //---------- DiningHall Class -----------
 class DiningHall{
 private:
-    unsigned int _hall_id;
+    unsigned int _hallId;
     string _name;
     string _address;
     int _capacity;

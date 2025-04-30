@@ -4,16 +4,16 @@ using namespace std;
 
 //---------------------------------- DiningHall Class -----------------------------------
 
-DiningHall::DiningHall(unsigned int hall_id, string name, string address, int capacity)
+DiningHall::DiningHall(unsigned int hallId, string name, string address, int capacity)
 {
-    setHallId(hall_id);
+    setHallId(hallId);
     setName(name);
     setAddress(address);
     setCapacity(capacity);
 }
 
-//----- setters -----
-void DiningHall::setHallId(unsigned int hall_id)
+//-------------------- setters --------------------
+void DiningHall::setHallId(unsigned int hallId)
 {
 
 }
@@ -30,10 +30,10 @@ void DiningHall::setCapacity(int capacity)
 
 }
 
-//----- getters -----
+//-------------------- getters --------------------
 int DiningHall::getHallId()const
 {
-    return _hall_id;
+    return _hallId;
 }
 string DiningHall::getName()const
 {

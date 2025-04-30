@@ -1,20 +1,19 @@
 #include "../include/meal.hpp"
 using namespace std;
 
-
 //------------------------------------- Meal Class --------------------------------------
 
-Meal::Meal(unsigned int meal_id, string name, float price, MealType meal_type, vector<string> side_item)
+Meal::Meal(unsigned int mealId, string name, float price, MealType mealType, vector<string> sideItem)
 {
-    setMealId(meal_id);
+    setMealId(mealId);
     setName(name);
     setPrice(price);
-    setMealType(meal_type);
-    setSideItem(side_item);
+    setMealType(mealType);
+    setSideItem(sideItem);
 }
 
-//----- setters -----
-void Meal::setMealId(unsigned int meal_id)
+//-------------------- setters --------------------
+void Meal::setMealId(unsigned int mealId)
 {
 
 }
@@ -26,19 +25,19 @@ void Meal::setPrice(float price)
 {
 
 }
-void Meal::setMealType(MealType meal_type)
+void Meal::setMealType(MealType mealType)
 {
 
 }
-void Meal::setSideItem(vector<string> side_item)
+void Meal::setSideItem(vector<string> sideItem)
 {
 
 }
 
-//----- getters -----
+//-------------------- getters --------------------
 int Meal::getMealId()const
 {
-    return _meal_id;
+    return _mealId;
 }
 string Meal::getName()const
 {
@@ -50,9 +49,11 @@ float Meal::getPrice()const
 }
 MealType Meal::getMealType()const
 {
-    return _meal_type;
+    return _mealType;
 }
 vector<string> Meal::getSideItem()const
 {
-    return _side_item;
+    return _sideItem;
 }
+
+

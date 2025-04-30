@@ -2,20 +2,23 @@
 #define STUDENT_H
 #include "meal.hpp"
 #include "reservation.hpp"
+#include <vector>
+#include <string>
 using namespace std;
+class Reservation;
 
 //------------ Student Class ------------
 class Student{
 private:
-    unsigned int _user_id;
-    string _student_id;
+    unsigned int _userId;
+    string _studentId;
     string _name;
     string _email;
     float _balance;
-    bool _is_active;
+    bool _isActive;
     vector<Reservation> _reservations;
 public:
-    Student(unsigned int = 0, string = "0000000000", string = "Unknown", string = "Unknown@gmail.com", float = 0.0f, bool = true);
+    Student(unsigned int = 0, string = "0000000000", string = "Unknown", string = "Unknown@gmail.com", float = 0.0f, bool = true, vector<Reservation> reservations = {});
     void print()const;
     void reserveMeal(Meal);
     bool cancelReservation(Reservation);
@@ -36,7 +39,7 @@ public:
     string getEmail()const;
     float getBalance()const;
     bool getIsActive()const;
-    vector<Reservation> setReservations()const;
+    vector<Reservation> getReservations()const;
 };
 
 #endif // STUDENT_H

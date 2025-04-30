@@ -8,5 +8,4 @@ enum class MealType{
     DINNER,
 };
 
-
 #endif // MEAL_TYPE_H

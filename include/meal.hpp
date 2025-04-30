@@ -1,16 +1,18 @@
 #ifndef MEAL_H
 #define MEAL_H
 #include "meal_type.hpp"
+#include <vector>
+#include <string>
 using namespace std;
 
 //------------- Meal Class --------------
 class Meal{
 private:
-    unsigned int _meal_id;
+    unsigned int _mealId;
     string _name;
     float _price;
-    MealType _meal_type;
-    vector<string> _side_item;
+    MealType _mealType;
+    vector<string> _sideItem;
 public:
     Meal(unsigned int = 0, string = "Unknown", float = 15000.0f, MealType = MealType::LUNCH, vector<string> = {"not selected"});
     void print()const;
