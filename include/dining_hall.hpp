@@ -12,20 +12,20 @@ private:
     string _address;
     int _capacity;
 public:
-    DiningHall(unsigned int = 0, string = "University", string = "...", int = 200);
+    DiningHall(unsigned int = 120004, string = "University", string = "...", unsigned int = 200);
     void print()const;
 
     //----- setters -----
     void setHallId(unsigned int);
     void setName(string);
     void setAddress(string);
-    void setCapacity(int);
+    void setCapacity(unsigned int);
 
     //----- getters -----
-    int getHallId()const;
+    unsigned int getHallId()const;
     string getName()const;
     string getAddress()const;
-    int getCapacity()const;
+    unsigned int getCapacity()const;
 };
 
 

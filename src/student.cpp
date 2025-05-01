@@ -3,6 +3,11 @@
 #include <string.h>
 using namespace std;
 
+int inputUnsignedInt();
+float inputFloat();
+string inputString();
+bool inputBool();
+
 //------------------------------------ Student Class ------------------------------------
 
 Student::Student(unsigned int userId, string studentId, string name, string email, float balance, bool isActive, vector<Reservation> reservations)
@@ -17,46 +22,41 @@ Student::Student(unsigned int userId, string studentId, string name, string emai
         setIsActive(isActive);
         setReservations(reservations);
     }
-    catch(invalid_argument)
+    catch(exception &e)
     {
-        cerr << "\nThe input is invalid!\nPlease try again...\n\n";
-    }
-    catch(domain_error)
-    {
-        cerr << "\nThe number of digits entered is not correct!\nPlease try again...\n\n";
-    }
-    catch(length_error)
-    {
-        cerr << "\nThe string size is not appropriate!\nPlease try again...\n\n";
-    }
-    catch(...)
-    {
-        cerr << "\nThere was a problem while checking the input!\nPlease try again...\n\n";
+        cerr << e.what();
     }
 }
 
 //-------------------- setters --------------------
 void Student::setUserId(unsigned int userId)
 {
-    string temp = to_string(userId);
-    if(temp.length() <= 8)
-    {
-        _userId = userId;
-    }
-    else
-    {
-        throw domain_error("");
-    }
+    _userId = userId;
 }
 void Student::setStudentId(string studentId)
 {
     if(studentId.length() == 10)
     {
-        _studentId = studentId;
+        int j = 0;
+        for(int i = 0; i < studentId.length(); ++i)
+        {
+            if(!(studentId[i] >= 65 && studentId[i] <= 90 || studentId[i] >= 97 && studentId[i] <= 122 || studentId[i] >= 48 && studentId[i] <= 57))
+            {
+                j++;
+            }
+        }
+        if(j == 0)
+        {
+            _studentId = studentId;
+        }
+        else
+        {
+            throw invalid_argument("\n\nError: Student ID must consist of only numbers or letters!\n\n");
+        }
     }
     else
     {
-        throw length_error("");
+        throw length_error("\n\nError: The number of digits entered is incorrect!\n\n");
     }
 }
 void Student::setName(string name)
@@ -77,12 +77,12 @@ void Student::setName(string name)
         }
         else
         {
-            throw invalid_argument("");
+            throw invalid_argument("\n\nError: The student's name must consist only of letters or space characters!\n\n");
         }
     }
     else
     {
-        throw length_error("");
+        throw length_error("\n\nError: Name length is not allowed!\n\n");
     }
 }
 void Student::setEmail(string email)
@@ -110,17 +110,17 @@ void Student::setEmail(string email)
             }
             else
             {
-                throw invalid_argument("");
+                throw invalid_argument("\n\nError: Gmail can contain numbers, uppercase or lowercase letters, or allowed characters (@ .)\n\n");
             }
         }
         else
         {
-            throw invalid_argument("");
+            throw invalid_argument("\n\nError: Gmail must end with '@gmail.com'\n\n");
         }
     }
     else
     {
-        throw length_error("");
+        throw length_error("\n\nError: Gmail length is not allowed!\n\n");
     }
 }
 void Student::setBalance(float balance)
@@ -163,4 +163,52 @@ bool Student::getIsActive()const
 vector<Reservation> Student::getReservations()const
 {
     return _reservations;
+}
+
+//------------------------ newStusent -------------------------
+
+Student newStusent()
+{
+    Student tempS;
+    int counter = 1;
+    while(true)
+    {
+        try
+        {
+            switch (counter) {
+                case 1:
+                    cout << "User ID: ";
+                    tempS.setUserId(inputUnsignedInt());
+                    counter++;
+                case 2:
+                    cout << "Student ID: ";
+                    tempS.setStudentId(inputString());
+                    counter++;
+                case 3:
+                    cout << "Name: ";
+                    tempS.setName(inputString());
+                    counter++;
+                case 4:
+                    cout << "Email address: ";
+                    tempS.setEmail(inputString());
+                    counter++;
+                case 5:
+                    cout << "Balance: ";
+                    tempS.setBalance(inputFloat());
+                    counter++;
+                case 6:
+                    cout << "Is active: (true/false) or (0/1) : ";
+                    tempS.setIsActive(inputBool());
+                    counter++;
+            }
+            if(counter == 7)
+            {
+                return tempS;
+            }
+        }
+        catch(exception &e)
+        {
+            cerr << e.what();
+        }
+    }
 }
