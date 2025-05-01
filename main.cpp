@@ -21,6 +21,7 @@ using namespace std;
 void gotoxy(int, int);
 Student newStusent();
 DiningHall newDiningHall();
+Meal newMeal();
 
 
 int main()
@@ -29,9 +30,13 @@ int main()
     //a = newStusent();
     //cout << "\n\n" << a.getBalance();
 
-    DiningHall b;
-    b = newDiningHall();
-    cout << "\n\n" << b.getAddress();
+    //DiningHall b;
+    //b = newDiningHall();
+    //cout << "\n\n" << b.getAddress();
+
+    Meal c;
+    c = newMeal();
+    //cout << "\n\n" << c.getMealId();
     return 0;
 }
 

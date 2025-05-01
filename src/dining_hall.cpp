@@ -2,10 +2,8 @@
 #include <iostream>
 using namespace std;
 
-int inputUnsignedInt();
-float inputFloat();
+int inputInt();
 string inputString();
-bool inputBool();
 
 //---------------------------------- DiningHall Class -----------------------------------
 
@@ -43,17 +41,17 @@ void DiningHall::setHallId(unsigned int hallId)
             }
             else
             {
-                throw invalid_argument("\n\nError: The code entered is incorrect!\n\n");
+                throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
             }
         }
         else
         {
-            throw invalid_argument("\n\nError: The code entered is incorrect!\n\n");
+            throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
         }
     }
     else
     {
-        throw domain_error("\n\nError: The number of digits in the code is incorrect!\n\n");
+        throw domain_error("\n\nError: The number of digits in the ID is incorrect!\n\n");
     }
 }
 void DiningHall::setName(string name)
@@ -144,7 +142,7 @@ DiningHall newDiningHall()
             switch (counter) {
                 case 1:
                     cout << "Hall ID: ";
-                    tempDH.setHallId(inputUnsignedInt());
+                    tempDH.setHallId(inputInt());
                     counter++;
                 case 2:
                     cout << "Name: ";
@@ -156,7 +154,7 @@ DiningHall newDiningHall()
                     counter++;
                 case 4:
                     cout << "Capacity: ";
-                    tempDH.setCapacity(inputUnsignedInt());
+                    tempDH.setCapacity(inputInt());
                     counter++;
             }
             if(counter == 5)

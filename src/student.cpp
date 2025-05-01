@@ -3,7 +3,7 @@
 #include <string.h>
 using namespace std;
 
-int inputUnsignedInt();
+int inputInt();
 float inputFloat();
 string inputString();
 bool inputBool();
@@ -178,7 +178,7 @@ Student newStusent()
             switch (counter) {
                 case 1:
                     cout << "User ID: ";
-                    tempS.setUserId(inputUnsignedInt());
+                    tempS.setUserId(inputInt());
                     counter++;
                 case 2:
                     cout << "Student ID: ";

@@ -14,7 +14,7 @@ private:
     MealType _mealType;
     vector<string> _sideItem;
 public:
-    Meal(unsigned int = 0, string = "Unknown", float = 15000.0f, MealType = MealType::LUNCH, vector<string> = {"not selected"});
+    Meal(unsigned int = 100001, string = "Unknown", float = 15000.0f, MealType = MealType::LUNCH, vector<string> = {"not selected"});
     void print()const;
     void updatePrice(float);
     void addSideItem(string);
