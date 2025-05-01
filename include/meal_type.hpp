@@ -1,5 +1,5 @@
-#ifndef MEAL_TYPE_H
-#define MEAL_TYPE_H
+#ifndef MEAL_TYPE_HPP
+#define MEAL_TYPE_HPP
 
 //----------- MealType Class ------------
 enum class MealType{
@@ -8,4 +8,4 @@ enum class MealType{
     DINNER,
 };
 
-#endif // MEAL_TYPE_H
+#endif // MEAL_TYPE_HPP

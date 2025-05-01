@@ -1,4 +1,5 @@
 #include "../include/meal_type.hpp"
+#include "../include/reservation_status.hpp"
 #include <iostream>
 #include <vector>
 
@@ -166,6 +167,41 @@ MealType inputMealType()
     else
     {
         throw invalid_argument("\n\nError: Invalid meal type!\n\n");
+    }
+}
+
+//------------------ inputReservationStatus ------------------
+
+ReservationStatus inputReservationStatus()
+{
+    string temp;
+    getline(cin, temp);
+    for(int i = 0; i < temp.length(); ++i)
+    {
+        if(temp[i] >= 65 && temp[i] <= 90)
+        {
+            temp[i] += 32;
+        }
+    }
+    if(temp == "cancelled")
+    {
+        return ReservationStatus::CANCELLED;
+    }
+    else if(temp == "faileed")
+    {
+        return ReservationStatus::FAILEED;
+    }
+    else if(temp == "selected")
+    {
+        return ReservationStatus::SELECTED;
+    }
+    else if(temp == "success")
+    {
+        return ReservationStatus::SUCCESS;
+    }
+    else
+    {
+        throw invalid_argument("\n\nError: The entered reservation status is invalid!\n\n");
     }
 }
 

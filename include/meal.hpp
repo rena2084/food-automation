@@ -1,5 +1,5 @@
-#ifndef MEAL_H
-#define MEAL_H
+#ifndef MEAL_HPP
+#define MEAL_HPP
 #include "meal_type.hpp"
 #include <vector>
 #include <string>
@@ -34,4 +34,4 @@ public:
     vector<string> getSideItem()const;
 };
 
-#endif // MEAL_H
+#endif // MEAL_HPP

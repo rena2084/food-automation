@@ -1,5 +1,5 @@
-#ifndef RESERVATION_STATUS_H
-#define RESERVATION_STATUS_H
+#ifndef RESERVATION_STATUS_HPP
+#define RESERVATION_STATUS_HPP
 
 //------ ReservationStatus Class --------
 enum class ReservationStatus{
@@ -9,4 +9,4 @@ enum class ReservationStatus{
     FAILEED,
 };
 
-#endif // RESERVATION_STATUS_H
+#endif // RESERVATION_STATUS_HPP

@@ -1,5 +1,5 @@
-#ifndef DINING_HALL_H
-#define DINING_HALL_H
+#ifndef DINING_HALL_HPP
+#define DINING_HALL_HPP
 #include <string>
 using namespace std;
 
@@ -29,4 +29,4 @@ public:
 };
 
 
-#endif // DINING_HALL_H
+#endif // DINING_HALL_HPP

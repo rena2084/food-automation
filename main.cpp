@@ -22,6 +22,7 @@ void gotoxy(int, int);
 Student newStusent();
 DiningHall newDiningHall();
 Meal newMeal();
+Reservation newReservation();
 
 
 int main()
@@ -34,9 +35,13 @@ int main()
     //b = newDiningHall();
     //cout << "\n\n" << b.getAddress();
 
-    Meal c;
-    c = newMeal();
+    //Meal c;
+    //c = newMeal();
     //cout << "\n\n" << c.getMealId();
+
+    Reservation d;
+    d = newReservation();
+    //cout << "\n\n" << d.getReservationId();
     return 0;
 }
 

@@ -1,5 +1,5 @@
-#ifndef STUDENT_H
-#define STUDENT_H
+#ifndef STUDENT_HPP
+#define STUDENT_HPP
 #include "meal.hpp"
 #include "reservation.hpp"
 #include <vector>
@@ -42,4 +42,4 @@ public:
     vector<Reservation> getReservations()const;
 };
 
-#endif // STUDENT_H
+#endif // STUDENT_HPP

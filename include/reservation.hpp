@@ -1,5 +1,5 @@
-#ifndef RESERVATION_H
-#define RESERVATION_H
+#ifndef RESERVATION_HPP
+#define RESERVATION_HPP
 #include "meal.hpp"
 #include "dining_hall.hpp"
 #include "student.hpp"
@@ -19,7 +19,7 @@ private:
     ReservationStatus _status;
     time_t _createdAt;
 public:
-    Reservation(unsigned int = 0, ReservationStatus = ReservationStatus::SELECTED, time_t = time(nullptr));
+    Reservation(unsigned int = 100021, ReservationStatus = ReservationStatus::SELECTED, time_t = time(nullptr));
     void print()const;
     bool cancel();
 
@@ -41,4 +41,4 @@ public:
 };
 
 
-#endif // RESERVATION_H
+#endif // RESERVATION_HPP
