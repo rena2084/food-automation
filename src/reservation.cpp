@@ -1,9 +1,13 @@
 #include "../include/reservation.hpp"
+#include "../include/dining_hall.hpp"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int inputInt();
 ReservationStatus inputReservationStatus();
+DiningHall checkingAndGetDiningHall(vector<DiningHall>);
+Meal checkingAndGetMeal(vector<Meal>);
 
 //---------------------------------- Reservation Class ----------------------------------
 
@@ -12,9 +16,6 @@ Reservation::Reservation(unsigned int reservationId, ReservationStatus status, t
     try
     {
         setReservationId(reservationId);
-        setStudent();
-        setDiningHall();
-        setMeal();
         setStatus(status);
         setCreatedAt(createdAt);
     }
@@ -47,17 +48,17 @@ void Reservation::setReservationId(unsigned int reservationId)
         throw domain_error("\n\nError: The number of digits in the ID is incorrect!\n\n");
     }
 }
-void Reservation::setStudent()
+void Reservation::setStudent(Student student)
 {
-
+    *_student = student;
 }
-void Reservation::setDiningHall()
+void Reservation::setDiningHall(DiningHall diningHall)
 {
-
+    _diningHall = diningHall;
 }
-void Reservation::setMeal()
+void Reservation::setMeal(Meal meal)
 {
-
+    _meal = meal;
 }
 void Reservation::setStatus(ReservationStatus status)
 {
@@ -77,7 +78,7 @@ Student Reservation::getStudent()const
 {
     return *_student;
 }
-DiningHall Reservation::getDHall()const
+DiningHall Reservation::getDiningHall()const
 {
     return _diningHall;
 }
@@ -96,7 +97,7 @@ time_t Reservation::getCreatedAt()const
 
 //---------------------- newReservation -----------------------
 
-Reservation newReservation()
+Reservation newReservation(vector<DiningHall> DHvector, vector<Meal> Mvector)
 {
     Reservation tempR;
     int counter = 1;
@@ -114,11 +115,15 @@ Reservation newReservation()
                     tempR.setStatus(inputReservationStatus());
                     counter++;
                 case 3:
-                    cout << "Created at: ";
-                    tempR.setReservationId(inputInt());
+                    cout << "Dining hall ID: ";
+                    tempR.setDiningHall(checkingAndGetDiningHall(DHvector));
+                    counter++;
+                case 4:
+                    cout << "Meal ID: ";
+                    tempR.setMeal(checkingAndGetMeal(Mvector));
                     counter++;
             }
-            if(counter == 4)
+            if(counter == 5)
             {
                 return tempR;
             }

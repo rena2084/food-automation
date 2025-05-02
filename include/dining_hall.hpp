@@ -1,6 +1,7 @@
 #ifndef DINING_HALL_HPP
 #define DINING_HALL_HPP
 #include <string>
+#include <vector>
 using namespace std;
 
 
@@ -12,11 +13,11 @@ private:
     string _address;
     int _capacity;
 public:
-    DiningHall(unsigned int = 120004, string = "University", string = "...", unsigned int = 200);
+    DiningHall(unsigned int = 120004, vector<DiningHall> DHvector = {}, string = "University", string = "...", unsigned int = 200);
     void print()const;
 
     //----- setters -----
-    void setHallId(unsigned int);
+    void setHallId(unsigned int, vector<DiningHall>);
     void setName(string);
     void setAddress(string);
     void setCapacity(unsigned int);

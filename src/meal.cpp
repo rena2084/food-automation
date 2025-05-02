@@ -8,14 +8,15 @@ float inputFloat();
 string inputString();
 MealType inputMealType();
 vector<string> inputStringVector();
+bool checkingMeal(vector<Meal>, unsigned int);
 
 //------------------------------------- Meal Class --------------------------------------
 
-Meal::Meal(unsigned int mealId, string name, float price, MealType mealType, vector<string> sideItem)
+Meal::Meal(unsigned int mealId, vector<Meal> Mvector, string name, float price, MealType mealType, vector<string> sideItem)
 {
     try
     {
-        setMealId(mealId);
+        setMealId(mealId, Mvector);
         setName(name);
         setPrice(price);
         setMealType(mealType);
@@ -28,7 +29,7 @@ Meal::Meal(unsigned int mealId, string name, float price, MealType mealType, vec
 }
 
 //-------------------- setters --------------------
-void Meal::setMealId(unsigned int mealId)
+void Meal::setMealId(unsigned int mealId, vector<Meal> Mvector)
 {
     //100021
     //first digit -> Food price range(1 or 2 or 3)
@@ -41,7 +42,14 @@ void Meal::setMealId(unsigned int mealId)
         {
             if(temp[1] == '0' && temp[2] == '0' && temp[3] == '0')
             {
-                _mealId = mealId;
+                if(!(checkingMeal(Mvector, mealId)))
+                {
+                    _mealId = mealId;
+                }
+                else
+                {
+                    throw runtime_error("\n\nError: The entered ID is duplicate!\n\n");
+                }
             }
             else
             {
@@ -121,7 +129,7 @@ vector<string> Meal::getSideItem()const
 
 //------------------------- newMeal ---------------------------
 
-Meal newMeal()
+Meal newMeal(vector<Meal> Mvector)
 {
     Meal tempM;
     int counter = 1;
@@ -132,7 +140,7 @@ Meal newMeal()
             switch (counter) {
                 case 1:
                     cout << "Meal ID: ";
-                    tempM.setMealId(inputInt());
+                    tempM.setMealId(inputInt(), Mvector);
                     counter++;
                 case 2:
                     cout << "Name: ";

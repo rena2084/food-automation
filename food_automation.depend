@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1746133768 source:d:\c++ projects\semester 2\food_automation\main.cpp
+1746189680 source:d:\c++ projects\semester 2\food_automation\main.cpp
 	<iostream>
 	<vector>
 	<string.h>
@@ -13,15 +13,16 @@
 	"./include/reservation_status.hpp"
 	"./include/meal_type.hpp"
 
-1746134066 d:\c++ projects\semester 2\food_automation\include\meal.hpp
+1746182286 d:\c++ projects\semester 2\food_automation\include\meal.hpp
 	"meal_type.hpp"
 	<vector>
 	<string>
 
 1746134073 d:\c++ projects\semester 2\food_automation\include\meal_type.hpp
 
-1746134055 d:\c++ projects\semester 2\food_automation\include\dining_hall.hpp
+1746180497 d:\c++ projects\semester 2\food_automation\include\dining_hall.hpp
 	<string>
+	<vector>
 
 1746134107 d:\c++ projects\semester 2\food_automation\include\student.hpp
 	"meal.hpp"
@@ -29,7 +30,7 @@
 	<vector>
 	<string>
 
-1746134086 d:\c++ projects\semester 2\food_automation\include\reservation.hpp
+1746180497 d:\c++ projects\semester 2\food_automation\include\reservation.hpp
 	"meal.hpp"
 	"dining_hall.hpp"
 	"student.hpp"
@@ -45,28 +46,33 @@
 1746095190 source:d:\c++ projects\semester 2\food_automation\src\system.cpp
 	<windows.h>
 
-1746115837 source:d:\c++ projects\semester 2\food_automation\src\dining_hall.cpp
+1746182841 source:d:\c++ projects\semester 2\food_automation\src\dining_hall.cpp
 	"../include/dining_hall.hpp"
 	<iostream>
 
-1746118141 source:d:\c++ projects\semester 2\food_automation\src\meal.cpp
+1746183734 source:d:\c++ projects\semester 2\food_automation\src\meal.cpp
 	"../include/meal.hpp"
 	<iostream>
 	<string.h>
 
-1746133683 source:d:\c++ projects\semester 2\food_automation\src\reservation.cpp
+1746184310 source:d:\c++ projects\semester 2\food_automation\src\reservation.cpp
 	"../include/reservation.hpp"
+	"../include/dining_hall.hpp"
 	<iostream>
+	<vector>
 
 1746114181 source:d:\c++ projects\semester 2\food_automation\src\student.cpp
 	"../include/student.hpp"
 	<iostream>
 	<string.h>
 
-1746133659 source:d:\c++ projects\semester 2\food_automation\src\additonal_data_types.cpp
+1746184816 source:d:\c++ projects\semester 2\food_automation\src\additonal_data_types.cpp
 	"../include/meal_type.hpp"
 	"../include/reservation_status.hpp"
+	"../include/dining_hall.hpp"
+	"../include/meal.hpp"
 	<iostream>
+	<string.h>
 	<vector>
 
 1746038735 d:\c++ projects\semester 2\food_automation\src\additonal_data_types.cpp

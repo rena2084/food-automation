@@ -4,14 +4,15 @@ using namespace std;
 
 int inputInt();
 string inputString();
+bool checkingDiningHall(vector<DiningHall>, unsigned int);
 
 //---------------------------------- DiningHall Class -----------------------------------
 
-DiningHall::DiningHall(unsigned int hallId, string name, string address, unsigned int capacity)
+DiningHall::DiningHall(unsigned int hallId, vector<DiningHall> DHvector, string name, string address, unsigned int capacity)
 {
     try
     {
-        setHallId(hallId);
+        setHallId(hallId, DHvector);
         setName(name);
         setAddress(address);
         setCapacity(capacity);
@@ -23,7 +24,7 @@ DiningHall::DiningHall(unsigned int hallId, string name, string address, unsigne
 }
 
 //-------------------- setters --------------------
-void DiningHall::setHallId(unsigned int hallId)
+void DiningHall::setHallId(unsigned int hallId, vector<DiningHall> DHvector)
 {
     //120004
     //first digit -> University ID
@@ -37,7 +38,14 @@ void DiningHall::setHallId(unsigned int hallId)
         {
             if(temp[2] == '0' && temp[3] == '0' && temp[4] == '0')
             {
-                _hallId = hallId;
+                if(!(checkingDiningHall(DHvector, hallId)))
+                {
+                    _hallId = hallId;
+                }
+                else
+                {
+                    throw runtime_error("\n\nError: The entered ID is duplicate!\n\n");
+                }
             }
             else
             {
@@ -131,7 +139,7 @@ unsigned int DiningHall::getCapacity()const
 
 //---------------------- newDiningHall ------------------------
 
-DiningHall newDiningHall()
+DiningHall newDiningHall(vector<DiningHall> DHvector)
 {
     DiningHall tempDH;
     int counter = 1;
@@ -142,7 +150,7 @@ DiningHall newDiningHall()
             switch (counter) {
                 case 1:
                     cout << "Hall ID: ";
-                    tempDH.setHallId(inputInt());
+                    tempDH.setHallId(inputInt(), DHvector);
                     counter++;
                 case 2:
                     cout << "Name: ";

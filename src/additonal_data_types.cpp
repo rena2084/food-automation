@@ -1,9 +1,32 @@
 #include "../include/meal_type.hpp"
 #include "../include/reservation_status.hpp"
+#include "../include/dining_hall.hpp"
+#include "../include/meal.hpp"
 #include <iostream>
+#include <string.h>
 #include <vector>
 
 using namespace std;
+
+
+
+
+
+bool checkingMeal(vector<Meal>, unsigned int);
+
+//---------------------- UTL ----------------------
+
+string UTL(string temp)
+{
+    for(int i = 0; i < temp.length(); ++i)
+    {
+        if(temp[i] >= 65 && temp[i] <= 90)
+        {
+            temp[i] += 32;
+        }
+    }
+    return temp;
+}
 
 //--------------------- inputUnsignedInt ----------------------
 
@@ -113,13 +136,7 @@ bool inputBool()
     int j = 0;
     if(!(temp.empty()))
     {
-        for(int i = 0; i < temp.length(); ++i)
-        {
-            if(temp[i] >= 65 && temp[i] <= 90)
-            {
-                temp[i] += 32;
-            }
-        }
+        UTL(temp);
         if(temp == "true" || temp == "1")
         {
             return true;
@@ -145,13 +162,7 @@ MealType inputMealType()
 {
     string temp;
     getline(cin, temp);
-    for(int i = 0; i < temp.length(); ++i)
-    {
-        if(temp[i] >= 65 && temp[i] <= 90)
-        {
-            temp[i] += 32;
-        }
-    }
+    UTL(temp);
     if(temp == "breakfast")
     {
         return MealType::BREAKFAST;
@@ -176,13 +187,7 @@ ReservationStatus inputReservationStatus()
 {
     string temp;
     getline(cin, temp);
-    for(int i = 0; i < temp.length(); ++i)
-    {
-        if(temp[i] >= 65 && temp[i] <= 90)
-        {
-            temp[i] += 32;
-        }
-    }
+    UTL(temp);
     if(temp == "cancelled")
     {
         return ReservationStatus::CANCELLED;
@@ -216,13 +221,7 @@ vector<string> inputStringVector()
         try
         {
             temp = inputString();
-            for(int i = 0; i < temp.length(); ++i)
-            {
-                if(temp[i] >= 65 && temp[i] <= 90)
-                {
-                    temp[i] += 32;
-                }
-            }
+            temp = UTL(temp);
             if(temp == "end")
             {
                 break;
@@ -262,4 +261,103 @@ vector<string> inputStringVector()
         cout << "Next side dish: ";
     }
     return tempVector;
+}
+
+
+bool checkingDiningHall(vector<DiningHall> DHvector, unsigned int temp)
+{
+    for(int i = 0; i < DHvector.size(); ++i)
+    {
+        if(temp == DHvector[i].getHallId())
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+DiningHall checkingAndGetDiningHall(vector<DiningHall> DHvector)
+{
+    string temp;
+    getline(cin, temp);
+    if(temp.length() == 6)
+    {
+        if(temp[1] == '1' || temp[1] == '2')
+        {
+            if(temp[2] == '0' && temp[3] == '0' && temp[4] == '0')
+            {
+                for(int i = 0; i < DHvector.size(); ++i)
+                {
+                    if(stoi(temp) == DHvector[i].getHallId())
+                    {
+                        return DHvector[i];
+                    }
+                }
+                throw runtime_error("\n\nError: There is no dining hall with this ID!\n\n");
+            }
+            else
+            {
+                throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
+            }
+        }
+        else
+        {
+            throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
+        }
+    }
+    else
+    {
+        throw domain_error("\n\nError: The number of digits in the ID is incorrect!\n\n");
+    }
+
+
+}
+
+bool checkingMeal(vector<Meal> Mvector, unsigned int temp)
+{
+    for(int i = 0; i < Mvector.size(); ++i)
+    {
+        if(temp == Mvector[i].getMealId())
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+Meal checkingAndGetMeal(vector<Meal> Mvector)
+{
+    string temp;
+    getline(cin, temp);
+    if(temp.length() == 6)
+    {
+        if(temp[0] == '1' || temp[0] == '2' || temp[0] == '3')
+        {
+            if(temp[1] == '0' && temp[2] == '0' && temp[3] == '0')
+            {
+                for(int i = 0; i < Mvector.size(); ++i)
+                {
+                    if(stoi(temp) == Mvector[i].getMealId())
+                    {
+                        return Mvector[i];
+                    }
+                }
+                throw runtime_error("\n\nError: There is no meal with this ID!\n\n");
+            }
+            else
+            {
+                throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
+            }
+        }
+        else
+        {
+            throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
+        }
+    }
+    else
+    {
+        throw domain_error("\n\nError: The number of digits in the ID is incorrect!\n\n");
+    }
 }

@@ -25,16 +25,16 @@ public:
 
     //----- setters -----
     void setReservationId(unsigned int);
-    void setStudent();
-    void setDiningHall();
-    void setMeal();
+    void setStudent(Student);
+    void setDiningHall(DiningHall);
+    void setMeal(Meal);
     void setStatus(ReservationStatus);
     void setCreatedAt(time_t);
 
     //----- getters -----
     int getReservationId()const;
     Student getStudent()const;
-    DiningHall getDHall()const;
+    DiningHall getDiningHall()const;
     Meal getMeal()const;
     ReservationStatus getStatus()const;
     time_t getCreatedAt()const;

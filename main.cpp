@@ -20,28 +20,79 @@ using namespace std;
 
 void gotoxy(int, int);
 Student newStusent();
-DiningHall newDiningHall();
-Meal newMeal();
-Reservation newReservation();
+DiningHall newDiningHall(vector<DiningHall>);
+Meal newMeal(vector<Meal>);
+Reservation newReservation(vector<DiningHall>, vector<Meal>);
 
 
 int main()
-{
+{/*
     //Student a;
     //a = newStusent();
     //cout << "\n\n" << a.getBalance();
+    array<int, 5> a = {1,2,3,4,5};
+    array<int, 5> b = {1,2,3,4,5};
 
-    //DiningHall b;
-    //b = newDiningHall();
+    bool c = a==b;
+    cout << c;
+*/
+
+    //char a = 'r', b = 's';
+    //SetConsoleOutputCP(CP_UTF8);
+    //cout << "\U0001F60E";
+    //cout << "\U0001F370";
+
+
+
+
+    /*
+class string
+{
+    char Array;
+    int Size;
+public:
+    string operator+(string);
+};
+string string::operator+(string ob)
+{
+    char temp[this.Size + ob.Size];
+    temp = ob.Array;
+}
+    string a = "dfgh";
+
+    */
+
+
+
+    vector<DiningHall> DHvector;
+    //while(true)
+    //{
+        DiningHall b;
+        b = newDiningHall(DHvector);
+        DHvector.push_back(b);
+    //}
     //cout << "\n\n" << b.getAddress();
 
-    //Meal c;
-    //c = newMeal();
+
+
+    vector<Meal> Mvector;
+    //while(true)
+    //{
+        Meal c;
+        c = newMeal(Mvector);
+        Mvector.push_back(c);
+    //}
     //cout << "\n\n" << c.getMealId();
 
+
+
+
     Reservation d;
-    d = newReservation();
+    d = newReservation(DHvector, Mvector);
     //cout << "\n\n" << d.getReservationId();
+
+
+
     return 0;
 }
 

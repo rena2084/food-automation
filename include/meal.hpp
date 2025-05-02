@@ -14,13 +14,13 @@ private:
     MealType _mealType;
     vector<string> _sideItem;
 public:
-    Meal(unsigned int = 100001, string = "Unknown", float = 15000.0f, MealType = MealType::LUNCH, vector<string> = {"not selected"});
+    Meal(unsigned int = 100001, vector<Meal> = {}, string = "Unknown", float = 15000.0f, MealType = MealType::LUNCH, vector<string> = {"not selected"});
     void print()const;
     void updatePrice(float);
     void addSideItem(string);
 
     //----- setters -----
-    void setMealId(unsigned int);
+    void setMealId(unsigned int, vector<Meal>);
     void setName(string);
     void setPrice(float);
     void setMealType(MealType);
