@@ -33,7 +33,6 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="food_automation.cbp" />
-		<Unit filename="food_automation.cpp" />
 		<Unit filename="food_automation.depend" />
 		<Unit filename="food_automation.layout" />
 		<Unit filename="include/dining_hall.hpp" />

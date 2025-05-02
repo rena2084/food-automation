@@ -1,10 +1,13 @@
 #include "../include/reservation.hpp"
 #include "../include/dining_hall.hpp"
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 #include <vector>
 using namespace std;
 
 int inputInt();
+string time_tToString(const time_t &);
 ReservationStatus inputReservationStatus();
 DiningHall checkingAndGetDiningHall(vector<DiningHall>);
 Meal checkingAndGetMeal(vector<Meal>);
@@ -17,12 +20,20 @@ Reservation::Reservation(unsigned int reservationId, ReservationStatus status, t
     {
         setReservationId(reservationId);
         setStatus(status);
-        setCreatedAt(createdAt);
+        _createdAt = time(0);
     }
     catch(exception &e)
     {
         cerr << e.what();
     }
+}
+
+string Reservation::time_tToString(const time_t &time)const
+{
+    tm *temp = localtime(&time);
+    stringstream ss;
+    ss << put_time(temp, "%d/%m/%Y %I:%M %p");
+    return ss.str();
 }
 
 //-------------------- setters --------------------
@@ -90,9 +101,14 @@ ReservationStatus Reservation::getStatus()const
 {
     return _status;
 }
-time_t Reservation::getCreatedAt()const
+time_t &Reservation::getCreatedAt()
 {
     return _createdAt;
+}
+
+string Reservation::getCreatedAtFormatted()const
+{
+    return time_tToString(_createdAt);
 }
 
 //---------------------- newReservation -----------------------

@@ -89,7 +89,7 @@ string string::operator+(string ob)
 
     Reservation d;
     d = newReservation(DHvector, Mvector);
-    //cout << "\n\n" << d.getReservationId();
+    cout << "\n\n" << d.getCreatedAtFormatted();
 
 
 

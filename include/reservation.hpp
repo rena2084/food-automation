@@ -6,6 +6,7 @@
 #include "reservation_status.hpp"
 #include <string>
 #include <time.h>
+
 using namespace std;
 class Student;
 
@@ -22,6 +23,7 @@ public:
     Reservation(unsigned int = 100021, ReservationStatus = ReservationStatus::SELECTED, time_t = time(nullptr));
     void print()const;
     bool cancel();
+    string time_tToString(const time_t &)const;
 
     //----- setters -----
     void setReservationId(unsigned int);
@@ -37,7 +39,8 @@ public:
     DiningHall getDiningHall()const;
     Meal getMeal()const;
     ReservationStatus getStatus()const;
-    time_t getCreatedAt()const;
+    time_t &getCreatedAt();
+    string getCreatedAtFormatted()const;
 };
 
 

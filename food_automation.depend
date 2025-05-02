@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1746189680 source:d:\c++ projects\semester 2\food_automation\main.cpp
+1746199853 source:d:\c++ projects\semester 2\food_automation\main.cpp
 	<iostream>
 	<vector>
 	<string.h>
@@ -30,7 +30,7 @@
 	<vector>
 	<string>
 
-1746180497 d:\c++ projects\semester 2\food_automation\include\reservation.hpp
+1746200376 d:\c++ projects\semester 2\food_automation\include\reservation.hpp
 	"meal.hpp"
 	"dining_hall.hpp"
 	"student.hpp"
@@ -55,10 +55,12 @@
 	<iostream>
 	<string.h>
 
-1746184310 source:d:\c++ projects\semester 2\food_automation\src\reservation.cpp
+1746200752 source:d:\c++ projects\semester 2\food_automation\src\reservation.cpp
 	"../include/reservation.hpp"
 	"../include/dining_hall.hpp"
 	<iostream>
+	<iomanip>
+	<sstream>
 	<vector>
 
 1746114181 source:d:\c++ projects\semester 2\food_automation\src\student.cpp
@@ -66,7 +68,7 @@
 	<iostream>
 	<string.h>
 
-1746184816 source:d:\c++ projects\semester 2\food_automation\src\additonal_data_types.cpp
+1746200097 source:d:\c++ projects\semester 2\food_automation\src\additonal_data_types.cpp
 	"../include/meal_type.hpp"
 	"../include/reservation_status.hpp"
 	"../include/dining_hall.hpp"
