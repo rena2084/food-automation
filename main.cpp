@@ -23,7 +23,7 @@ Student newStusent();
 DiningHall newDiningHall(vector<DiningHall>);
 Meal newMeal(vector<Meal>);
 Reservation newReservation(vector<DiningHall>, vector<Meal>);
-
+User newUser();
 
 int main()
 {/*
@@ -64,34 +64,36 @@ string string::operator+(string ob)
 
 
 
-    vector<DiningHall> DHvector;
+    //vector<DiningHall> DHvector;
     //while(true)
     //{
-        DiningHall b;
-        b = newDiningHall(DHvector);
-        DHvector.push_back(b);
+      //  DiningHall b;
+      //  b = newDiningHall(DHvector);
+      //  DHvector.push_back(b);
     //}
     //cout << "\n\n" << b.getAddress();
 
 
 
-    vector<Meal> Mvector;
+    //vector<Meal> Mvector;
     //while(true)
     //{
-        Meal c;
-        c = newMeal(Mvector);
-        Mvector.push_back(c);
+       // Meal c;
+       // c = newMeal(Mvector);
+        //Mvector.push_back(c);
     //}
     //cout << "\n\n" << c.getMealId();
 
 
 
 
-    Reservation d;
-    d = newReservation(DHvector, Mvector);
-    cout << "\n\n" << d.getCreatedAtFormatted();
+    //Reservation d;
+    //d = newReservation(DHvector, Mvector);
+   // cout << "\n\n" << d.getCreatedAtFormatted();
 
 
+    User e;
+    e = newUser();
 
     return 0;
 }

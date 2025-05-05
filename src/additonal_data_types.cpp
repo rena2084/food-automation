@@ -4,6 +4,7 @@
 #include "../include/meal.hpp"
 #include <iostream>
 #include <string.h>
+#include <conio.h>
 #include <vector>
 
 using namespace std;
@@ -28,7 +29,7 @@ string UTL(string temp)
     return temp;
 }
 
-//--------------------- inputUnsignedInt ----------------------
+//------------------------- inputInt --------------------------
 
 int inputInt()
 {
@@ -264,6 +265,48 @@ vector<string> inputStringVector()
 }
 
 
+
+
+//-------------------------- inputPass --------------------------
+
+string inputPass()
+{
+    string temp;
+    char ch;
+    while((ch = _getch()) != '\r')
+    {
+        temp += ch;
+        cout << "*";
+    }
+    if(!(temp.empty()))
+    {
+        int j = 0;
+        for(int i = 0; i < temp.length(); ++i)
+        {
+            if(!(temp[i] >= 48 && temp[i] <= 57 || temp[i] >= 64 && temp[i] <= 90 || temp[i] >= 97 && temp[i] <= 122 || temp[i] == 95 || temp[i] >= 44 && temp[i] <= 46))
+            {
+                //cout <<  temp[i];
+                j++;
+            }
+        }
+        //cout << "\n\n\n" << j << endl;
+        if(j == 0)
+        {
+            return temp;
+        }
+        else
+        {
+            invalid_argument("\n\nError: Password can contain numbers, uppercase or lowercase letters, or allowed characters (@ _ - , .)\n\n");
+        }
+    }
+    else
+    {
+        throw invalid_argument("\n\nError: Field cannot be empty. Please provide a valid input.\n\n");
+    }
+}
+
+//--------------------- checkingDiningHall ----------------------
+
 bool checkingDiningHall(vector<DiningHall> DHvector, unsigned int temp)
 {
     for(int i = 0; i < DHvector.size(); ++i)
@@ -275,6 +318,8 @@ bool checkingDiningHall(vector<DiningHall> DHvector, unsigned int temp)
     }
     return false;
 }
+
+//------------------ checkingAndGetDiningHall -------------------
 
 DiningHall checkingAndGetDiningHall(vector<DiningHall> DHvector)
 {
@@ -313,6 +358,8 @@ DiningHall checkingAndGetDiningHall(vector<DiningHall> DHvector)
 
 }
 
+//------------------------ checkingMeal -------------------------
+
 bool checkingMeal(vector<Meal> Mvector, unsigned int temp)
 {
     for(int i = 0; i < Mvector.size(); ++i)
@@ -325,7 +372,7 @@ bool checkingMeal(vector<Meal> Mvector, unsigned int temp)
     return false;
 }
 
-
+//--------------------- checkingAndGetMeal ----------------------
 
 Meal checkingAndGetMeal(vector<Meal> Mvector)
 {

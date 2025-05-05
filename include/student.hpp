@@ -1,5 +1,6 @@
 #ifndef STUDENT_HPP
 #define STUDENT_HPP
+#include "user.hpp"
 #include "meal.hpp"
 #include "reservation.hpp"
 #include <vector>
@@ -8,35 +9,34 @@ using namespace std;
 class Reservation;
 
 //------------ Student Class ------------
-class Student{
+class Student : public User{
 private:
-    unsigned int _userId;
     string _studentId;
-    string _name;
     string _email;
+    string _phone;
     float _balance;
     bool _isActive;
     vector<Reservation> _reservations;
 public:
-    Student(unsigned int = 0, string = "0000000000", string = "Unknown", string = "Unknown@gmail.com", float = 0.0f, bool = true, vector<Reservation> reservations = {});
+    Student(string = "0000000000", string = "Unknown@gmail.com", string = "00000000000", float = 0.0f, bool = true, vector<Reservation> reservations = {});
     void print()const;
+    string getType();
     void reserveMeal(Meal);
     bool cancelReservation(Reservation);
 
     //----- setters -----
-    void setUserId(unsigned int);
     void setStudentId(string);
-    void setName(string);
     void setEmail(string);
+    void setPhone(string);
     void setBalance(float);
     void setIsActive(bool);
     void setReservations(vector<Reservation>);
 
     //----- getters -----
-    int getUserId()const;
+    //
     string getStudentId()const;
-    string getName()const;
     string getEmail()const;
+    string getPhone()const;
     float getBalance()const;
     bool getIsActive()const;
     vector<Reservation> getReservations()const;
