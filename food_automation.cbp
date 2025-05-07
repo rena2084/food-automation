@@ -41,6 +41,7 @@
 		<Unit filename="include/reservation.hpp" />
 		<Unit filename="include/reservation_status.hpp" />
 		<Unit filename="include/student.hpp" />
+		<Unit filename="include/user.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/additonal_data_types.cpp" />
 		<Unit filename="src/dining_hall.cpp" />
@@ -48,6 +49,7 @@
 		<Unit filename="src/reservation.cpp" />
 		<Unit filename="src/student.cpp" />
 		<Unit filename="src/system.cpp" />
+		<Unit filename="src/user.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

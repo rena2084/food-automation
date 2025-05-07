@@ -59,10 +59,6 @@ void Reservation::setReservationId(unsigned int reservationId)
         throw domain_error("\n\nError: The number of digits in the ID is incorrect!\n\n");
     }
 }
-void Reservation::setStudent(Student student)
-{
-    *_student = student;
-}
 void Reservation::setDiningHall(DiningHall diningHall)
 {
     _diningHall = diningHall;
@@ -84,10 +80,6 @@ void Reservation::setCreatedAt(time_t createdAt)
 int Reservation::getReservationId()const
 {
     return _reservationId;
-}
-Student Reservation::getStudent()const
-{
-    return *_student;
 }
 DiningHall Reservation::getDiningHall()const
 {

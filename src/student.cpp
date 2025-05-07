@@ -18,7 +18,7 @@ Student::Student(string studentId, string email, string phone, float balance, bo
         setPhone(phone);
         setBalance(balance);
         setIsActive(isActive);
-        setReservations(reservations);
+        setReserves(reservations);
     }
     catch(exception &e)
     {
@@ -130,9 +130,9 @@ void Student::setIsActive(bool isActive)
 {
     _isActive = isActive;
 }
-void Student::setReservations(vector<Reservation> reservations)
+void Student::setReserves(vector<Reservation> reserves)
 {
-    _reservations = reservations;
+    _reserves = reserves;
 }
 //-------------------- getters --------------------
 string Student::getStudentId()const
@@ -155,9 +155,9 @@ bool Student::getIsActive()const
 {
     return _isActive;
 }
-vector<Reservation> Student::getReservations()const
+vector<Reservation> Student::getReserves()const
 {
-    return _reservations;
+    return _reserves;
 }
 
 //--------------------------- print ---------------------------
@@ -176,6 +176,34 @@ void Student::print()const
 string Student::getType()
 {
     return "student";
+}
+
+//------------------------ reserveMeal ------------------------
+
+void Student::reserveMeal(Meal)
+{
+
+}
+
+//--------------------- cancelReservation ---------------------
+
+bool Student::cancelReservation(Reservation)
+{
+
+}
+
+//------------------------- activate --------------------------
+
+void Student::activate()
+{
+
+}
+
+//------------------------ deactivate -------------------------
+
+void Student::deactivate()
+{
+
 }
 
 //------------------------ newStusent -------------------------

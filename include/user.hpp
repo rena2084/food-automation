@@ -12,6 +12,7 @@ private:
     string _hashedPassword;
 
 public:
+
     virtual void print()const;
     virtual string getType();
 

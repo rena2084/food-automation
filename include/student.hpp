@@ -16,13 +16,16 @@ private:
     string _phone;
     float _balance;
     bool _isActive;
-    vector<Reservation> _reservations;
+    vector<Reservation> _reserves;
 public:
     Student(string = "0000000000", string = "Unknown@gmail.com", string = "00000000000", float = 0.0f, bool = true, vector<Reservation> reservations = {});
     void print()const;
     string getType();
     void reserveMeal(Meal);
     bool cancelReservation(Reservation);
+    void activate();
+    void deactivate();
+
 
     //----- setters -----
     void setStudentId(string);
@@ -30,7 +33,7 @@ public:
     void setPhone(string);
     void setBalance(float);
     void setIsActive(bool);
-    void setReservations(vector<Reservation>);
+    void setReserves(vector<Reservation>);
 
     //----- getters -----
     //
@@ -39,7 +42,7 @@ public:
     string getPhone()const;
     float getBalance()const;
     bool getIsActive()const;
-    vector<Reservation> getReservations()const;
+    vector<Reservation> getReserves()const;
 };
 
 #endif // STUDENT_HPP

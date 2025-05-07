@@ -12,14 +12,16 @@ bool checkingMeal(vector<Meal>, unsigned int);
 
 //------------------------------------- Meal Class --------------------------------------
 
-Meal::Meal(unsigned int mealId, vector<Meal> Mvector, string name, float price, MealType mealType, vector<string> sideItem)
+Meal::Meal(unsigned int mealID, vector<Meal> Mvector, string name, float price, bool isActive, MealType mealType, ReserveDay reserveDay, vector<string> sideItem)
 {
     try
     {
-        setMealId(mealId, Mvector);
+        setMealID(mealID, Mvector);
         setName(name);
         setPrice(price);
+        setIsActive(isActive);
         setMealType(mealType);
+        setReserveDay(reserveDay);
         setSideItem(sideItem);
     }
     catch(exception &e)
@@ -29,22 +31,22 @@ Meal::Meal(unsigned int mealId, vector<Meal> Mvector, string name, float price, 
 }
 
 //-------------------- setters --------------------
-void Meal::setMealId(unsigned int mealId, vector<Meal> Mvector)
+void Meal::setMealID(unsigned int mealID, vector<Meal> Mvector)
 {
     //100021
     //first digit -> Food price range(1 or 2 or 3)
     //last two digits -> Food ID
 
-    string temp = to_string(mealId);
+    string temp = to_string(mealID);
     if(temp.length() == 6)
     {
         if(temp[0] == '1' || temp[0] == '2' || temp[0] == '3')
         {
             if(temp[1] == '0' && temp[2] == '0' && temp[3] == '0')
             {
-                if(!(checkingMeal(Mvector, mealId)))
+                if(!(checkingMeal(Mvector, mealID)))
                 {
-                    _mealId = mealId;
+                    _mealID = mealID;
                 }
                 else
                 {
@@ -96,9 +98,17 @@ void Meal::setPrice(float price)
 {
     _price = price;
 }
+void Meal::setIsActive(bool isActive)
+{
+    _isActive = isActive;
+}
 void Meal::setMealType(MealType mealType)
 {
     _mealType = mealType;
+}
+void Meal::setReserveDay(ReserveDay reserveDay)
+{
+    _reserveDay = reserveDay;
 }
 void Meal::setSideItem(vector<string> sideItem)
 {
@@ -106,9 +116,9 @@ void Meal::setSideItem(vector<string> sideItem)
 }
 
 //-------------------- getters --------------------
-int Meal::getMealId()const
+int Meal::getMealID()const
 {
-    return _mealId;
+    return _mealID;
 }
 string Meal::getName()const
 {
@@ -118,13 +128,35 @@ float Meal::getPrice()const
 {
     return _price;
 }
+bool Meal::getIsActive()const
+{
+    return _isActive;
+}
 MealType Meal::getMealType()const
 {
     return _mealType;
 }
+ReserveDay Meal::getReserveDay()const
+{
+    return _reserveDay;
+}
 vector<string> Meal::getSideItem()const
 {
     return _sideItem;
+}
+
+//------------------------- activate --------------------------
+
+void Meal::activate()
+{
+
+}
+
+//------------------------ deactivate -------------------------
+
+void Meal::deactivate()
+{
+
 }
 
 //------------------------- newMeal ---------------------------
@@ -140,7 +172,7 @@ Meal newMeal(vector<Meal> Mvector)
             switch (counter) {
                 case 1:
                     cout << "Meal ID: ";
-                    tempM.setMealId(inputInt(), Mvector);
+                    tempM.setMealID(inputInt(), Mvector);
                     counter++;
                 case 2:
                     cout << "Name: ";

@@ -14,7 +14,6 @@ class Student;
 class Reservation{
 private:
     unsigned int _reservationId;
-    Student* _student;
     DiningHall _diningHall;
     Meal _meal;
     ReservationStatus _status;
@@ -22,12 +21,10 @@ private:
 public:
     Reservation(unsigned int = 100021, ReservationStatus = ReservationStatus::SELECTED, time_t = time(nullptr));
     void print()const;
-    bool cancel();
     string time_tToString(const time_t &)const;
 
     //----- setters -----
     void setReservationId(unsigned int);
-    void setStudent(Student);
     void setDiningHall(DiningHall);
     void setMeal(Meal);
     void setStatus(ReservationStatus);
@@ -35,7 +32,6 @@ public:
 
     //----- getters -----
     int getReservationId()const;
-    Student getStudent()const;
     DiningHall getDiningHall()const;
     Meal getMeal()const;
     ReservationStatus getStatus()const;
