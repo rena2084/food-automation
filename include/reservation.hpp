@@ -14,8 +14,8 @@ class Student;
 class Reservation{
 private:
     unsigned int _reservationId;
-    DiningHall _diningHall;
-    Meal _meal;
+    DiningHall *_diningHall;
+    Meal *_meal;
     ReservationStatus _status;
     time_t _createdAt;
 public:

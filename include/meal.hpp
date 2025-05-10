@@ -6,7 +6,7 @@
 #include <string>
 using namespace std;
 
-//------------- Meal Class --------------
+//------------- Meal Class --------------SATURDAY
 class Meal{
 private:
     unsigned int _mealID;
@@ -17,7 +17,7 @@ private:
     ReserveDay _reserveDay;
     vector<string> _sideItem;
 public:
-    Meal(unsigned int = 100001, vector<Meal> = {}, string = "Unknown", float = 15000.0f, bool = true, MealType = MealType::LUNCH, ReserveDay = ReserveDay::A, vector<string> = {"not selected"});
+    Meal(unsigned int = 100001, vector<Meal> = {}, string = "Unknown", float = 15000.0f, bool = true, MealType = MealType::LUNCH, ReserveDay = ReserveDay::SATURDAY, vector<string> = {"not selected"});
     void activate();
     void deactivate();
     void print()const;

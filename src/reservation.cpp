@@ -8,6 +8,7 @@ using namespace std;
 
 int inputInt();
 string time_tToString(const time_t &);
+string toString(ReservationStatus);
 ReservationStatus inputReservationStatus();
 DiningHall checkingAndGetDiningHall(vector<DiningHall>);
 Meal checkingAndGetMeal(vector<Meal>);
@@ -26,14 +27,6 @@ Reservation::Reservation(unsigned int reservationId, ReservationStatus status, t
     {
         cerr << e.what();
     }
-}
-
-string Reservation::time_tToString(const time_t &time)const
-{
-    tm *temp = localtime(&time);
-    stringstream ss;
-    ss << put_time(temp, "%d/%m/%Y %I:%M %p");
-    return ss.str();
 }
 
 //-------------------- setters --------------------
@@ -61,11 +54,11 @@ void Reservation::setReservationId(unsigned int reservationId)
 }
 void Reservation::setDiningHall(DiningHall diningHall)
 {
-    _diningHall = diningHall;
+    *_diningHall = diningHall;
 }
 void Reservation::setMeal(Meal meal)
 {
-    _meal = meal;
+    *_meal = meal;
 }
 void Reservation::setStatus(ReservationStatus status)
 {
@@ -83,11 +76,11 @@ int Reservation::getReservationId()const
 }
 DiningHall Reservation::getDiningHall()const
 {
-    return _diningHall;
+    return *_diningHall;
 }
 Meal Reservation::getMeal()const
 {
-    return _meal;
+    return *_meal;
 }
 ReservationStatus Reservation::getStatus()const
 {
@@ -101,6 +94,25 @@ time_t &Reservation::getCreatedAt()
 string Reservation::getCreatedAtFormatted()const
 {
     return time_tToString(_createdAt);
+}
+
+//---------------------- time_tToString -----------------------
+
+string Reservation::time_tToString(const time_t &time)const
+{
+    tm *temp = localtime(&time);
+    stringstream ss;
+    ss << put_time(temp, "%d/%m/%Y %I:%M %p");
+    return ss.str();
+}
+
+//--------------------------- print ---------------------------
+
+void Reservation::print()const
+{
+    cout << "Reservation ID: " << getReservationId() << endl;
+    cout << "Status: " << toString(getStatus()) << endl;
+    cout << "Created at: " << getCreatedAtFormatted() << endl;
 }
 
 //---------------------- newReservation -----------------------

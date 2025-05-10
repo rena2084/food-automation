@@ -137,6 +137,16 @@ unsigned int DiningHall::getCapacity()const
     return _capacity;
 }
 
+//-------------------------- print ----------------------------
+
+void DiningHall::print()const
+{
+    cout << "Hall ID: " << getHallId() << endl;
+    cout << "Name: " << getName() << endl;
+    cout << "Address: " << getAddress() << endl;
+    cout << "Capacity: " << getCapacity() << endl;
+}
+
 //---------------------- newDiningHall ------------------------
 
 DiningHall newDiningHall(vector<DiningHall> DHvector)

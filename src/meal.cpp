@@ -6,6 +6,8 @@ using namespace std;
 int inputInt();
 float inputFloat();
 string inputString();
+string toString(MealType);
+string toString(ReserveDay);
 MealType inputMealType();
 vector<string> inputStringVector();
 bool checkingMeal(vector<Meal>, unsigned int);
@@ -149,14 +151,46 @@ vector<string> Meal::getSideItem()const
 
 void Meal::activate()
 {
-
+    _isActive = true;
 }
 
 //------------------------ deactivate -------------------------
 
 void Meal::deactivate()
 {
+    _isActive = false;
+}
 
+//--------------------------- print ---------------------------
+
+void Meal::print()const
+{
+    cout << "Meal ID: " << getMealID() << endl;
+    cout << "Name: " << getName() << endl;
+    cout << "Price: " << getPrice() << endl;
+    cout << "Is active: " << getIsActive() << endl;
+    cout << "Meal type: " << toString(getMealType()) << endl;
+    cout << "Reserve Day: " << toString(getReserveDay()) << endl;
+    cout << "Side Item:";
+    //for(int i = 0; i < getSideItem().length() ++i)
+    //{
+    //    cout << " " << getSideItem()[i];
+    //}
+    //cout << endl;
+}
+
+//------------------------ updatePrice ------------------------
+
+void Meal::updatePrice(float price)
+{
+    _price = price;
+}
+
+//------------------------ addSideItem ------------------------
+
+void Meal::addSideItem(string sideItem)
+{
+    _sideItem.push_back(sideItem);
 }
 
 //------------------------- newMeal ---------------------------

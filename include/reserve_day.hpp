@@ -2,7 +2,13 @@
 #define RESERVE_DAY_HPP
 
 enum class ReserveDay{
-    A,
+    SATURDAY,
+    SUNDAY,
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
 };
 
 #endif // RESERVE_DAY_HPP

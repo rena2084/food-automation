@@ -196,14 +196,14 @@ bool Student::cancelReservation(Reservation)
 
 void Student::activate()
 {
-
+    _isActive = true;
 }
 
 //------------------------ deactivate -------------------------
 
 void Student::deactivate()
 {
-
+    _isActive = false;
 }
 
 //------------------------ newStusent -------------------------

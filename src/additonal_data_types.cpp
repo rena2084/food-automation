@@ -411,3 +411,57 @@ Meal checkingAndGetMeal(vector<Meal> Mvector)
         throw domain_error("\n\nError: The number of digits in the ID is incorrect!\n\n");
     }
 }
+
+//-------------------------- toString ---------------------------
+
+string toString(MealType mealType)
+{
+    switch (mealType){
+        case MealType::BREAKFAST:
+            return "Breakfast";
+        case MealType::LUNCH:
+            return "Lunch";
+        case MealType::DINNER:
+            return "Dinner";
+        default:
+            throw invalid_argument("\n\nError: The input is invalid!\n\n");
+    }
+}
+
+string toString(ReserveDay reserveDay)
+{
+    switch (reserveDay){
+        case ReserveDay::SATURDAY:
+            return "Saturday";
+        case ReserveDay::SUNDAY:
+            return "Sunday";
+        case ReserveDay::MONDAY:
+            return "Monday";
+        case ReserveDay::TUESDAY:
+            return "Tuesday";
+        case ReserveDay::WEDNESDAY:
+            return "Wednesday";
+        case ReserveDay::THURSDAY:
+            return "Thursday";
+        case ReserveDay::FRIDAY:
+            return "Friday";
+        default:
+            throw invalid_argument("\n\nError: The input is invalid!\n\n");
+    }
+}
+
+string toString(ReservationStatus status)
+{
+    switch (status){
+        case ReservationStatus::CANCELLED:
+            return "Cancelled";
+        case ReservationStatus::FAILEED:
+            return "Faileed";
+        case ReservationStatus::SELECTED:
+            return "Selected";
+        case ReservationStatus::SUCCESS:
+            return "Success";
+        default:
+            throw invalid_argument("\n\nError: The input is invalid!\n\n");
+    }
+}
