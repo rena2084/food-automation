@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1748637086 source:d:\c++ projects\semester 2\food_automation\main.cpp
+1748706828 source:d:\c++ projects\semester 2\food_automation\main.cpp
 	<iostream>
 	<fstream>
 	<vector>
@@ -18,8 +18,9 @@
 	"./include/reservation_status.hpp"
 	"./include/meal_type.hpp"
 	"./include/admin.hpp"
+	"./include/panel.hpp"
 
-1748620687 d:\c++ projects\semester 2\food_automation\include\meal.hpp
+1748705498 d:\c++ projects\semester 2\food_automation\include\meal.hpp
 	"meal_type.hpp"
 	"reserve_day.hpp"
 	<vector>
@@ -27,18 +28,18 @@
 
 1746891302 d:\c++ projects\semester 2\food_automation\include\meal_type.hpp
 
-1748620687 d:\c++ projects\semester 2\food_automation\include\dining_hall.hpp
+1748705498 d:\c++ projects\semester 2\food_automation\include\dining_hall.hpp
 	<string>
 	<vector>
 
-1748629198 d:\c++ projects\semester 2\food_automation\include\student.hpp
+1748705498 d:\c++ projects\semester 2\food_automation\include\student.hpp
 	"user.hpp"
 	"meal.hpp"
 	"reservation.hpp"
 	<vector>
 	<string>
 
-1748626775 d:\c++ projects\semester 2\food_automation\include\reservation.hpp
+1748705498 d:\c++ projects\semester 2\food_automation\include\reservation.hpp
 	"meal.hpp"
 	"dining_hall.hpp"
 	"student.hpp"
@@ -46,25 +47,25 @@
 	<string>
 	<time.h>
 
-1746134096 d:\c++ projects\semester 2\food_automation\include\reservation_status.hpp
+1748707214 d:\c++ projects\semester 2\food_automation\include\reservation_status.hpp
 
 1746036774 d:\c++ projects\semester 2\food_automation\src\system.cpp
 	<windows.h>
 
-1748594339 source:d:\c++ projects\semester 2\food_automation\src\system.cpp
+1748705498 source:d:\c++ projects\semester 2\food_automation\src\system.cpp
 	<iostream>
 	<windows.h>
 
-1748622579 source:d:\c++ projects\semester 2\food_automation\src\dining_hall.cpp
+1748705498 source:d:\c++ projects\semester 2\food_automation\src\dining_hall.cpp
 	"../include/dining_hall.hpp"
 	<iostream>
 
-1748622589 source:d:\c++ projects\semester 2\food_automation\src\meal.cpp
+1748705498 source:d:\c++ projects\semester 2\food_automation\src\meal.cpp
 	"../include/meal.hpp"
 	<iostream>
 	<string.h>
 
-1748626770 source:d:\c++ projects\semester 2\food_automation\src\reservation.cpp
+1748709949 source:d:\c++ projects\semester 2\food_automation\src\reservation.cpp
 	"../include/reservation.hpp"
 	"../include/dining_hall.hpp"
 	"../include/meal.hpp"
@@ -73,12 +74,12 @@
 	<sstream>
 	<vector>
 
-1748629198 source:d:\c++ projects\semester 2\food_automation\src\student.cpp
+1748705498 source:d:\c++ projects\semester 2\food_automation\src\student.cpp
 	"../include/student.hpp"
 	<iostream>
 	<string.h>
 
-1748626759 source:d:\c++ projects\semester 2\food_automation\src\additonal_data_types.cpp
+1748707322 source:d:\c++ projects\semester 2\food_automation\src\additonal_data_types.cpp
 	"../include/meal_type.hpp"
 	"../include/reservation_status.hpp"
 	"../include/dining_hall.hpp"
@@ -94,40 +95,76 @@
 1746038735 d:\c++ projects\semester 2\food_automation\src\additonal_data_types.cpp
 	<iostream>
 
-1746962144 d:\c++ projects\semester 2\food_automation\include\user.hpp
+1748705498 d:\c++ projects\semester 2\food_automation\include\user.hpp
 	<iostream>
 	<string.h>
 
-1748597372 source:d:\c++ projects\semester 2\food_automation\src\user.cpp
+1748705498 source:d:\c++ projects\semester 2\food_automation\src\user.cpp
 	"../include/user.hpp"
 
-1746634168 source:d:\c++ projects\semester 2\food_automation\src\admin.cpp
+1748705498 source:d:\c++ projects\semester 2\food_automation\src\admin.cpp
 	"../include/admin.hpp"
 
-1746637905 d:\c++ projects\semester 2\food_automation\include\admin.hpp
+1748705498 d:\c++ projects\semester 2\food_automation\include\admin.hpp
 	"user.hpp"
 
-1746889429 d:\c++ projects\semester 2\food_automation\include\reserve_day.hpp
+1748705498 d:\c++ projects\semester 2\food_automation\include\reserve_day.hpp
 
-1748593642 source:d:\c++ projects\semester 2\food_automation\src\panel.cpp
+1748705498 source:d:\c++ projects\semester 2\food_automation\src\panel.cpp
 	"../include/panel.hpp"
 	"../include/reservation.hpp"
 	<cstdlib>
 	<windows.h>
 
-1748593482 d:\c++ projects\semester 2\food_automation\include\panel.hpp
+1748705498 d:\c++ projects\semester 2\food_automation\include\panel.hpp
 	"reservation.hpp"
 
-1747558263 source:d:\c++ projects\semester 2\food_automation\src\storage.cpp
+1748705498 source:d:\c++ projects\semester 2\food_automation\src\storage.cpp
 	"../include/storage.hpp"
 
-1748533153 d:\c++ projects\semester 2\food_automation\include\storage.hpp
+1748705498 d:\c++ projects\semester 2\food_automation\include\storage.hpp
 	"meal.hpp"
 	"dining_hall.hpp"
 
-1748596547 source:d:\c++ projects\semester 2\food_automation\view\login_page.cpp
+1748705498 source:d:\c++ projects\semester 2\food_automation\view\login_page.cpp
 	"../include/user.hpp"
 	<iostream>
 	<vector>
 	<windows.h>
+
+1748713429 source:d:\c++ projects\semester 2\food_automation\src\session_manager.cpp
+	"../include/session_manager.hpp"
+
+1748715445 source:d:\c++ projects\semester 2\food_automation\src\shopping_cart.cpp
+	"../include/shopping_cart.hpp"
+
+1748712814 source:d:\c++ projects\semester 2\food_automation\src\transaction.cpp
+	"../include/transaction.hpp"
+
+1748713346 d:\c++ projects\semester 2\food_automation\include\shopping_cart.hpp
+	<vector>
+	"Reservation.hpp"
+	"Transaction.hpp"
+
+1748712833 d:\c++ projects\semester 2\food_automation\include\transaction.hpp
+	<iostream>
+	<time.h>
+	"transaction_type.hpp"
+	"transaction_status.hpp"
+
+1748706683 d:\c++ projects\semester 2\food_automation\include\transaction_type.hpp
+
+1748706741 d:\c++ projects\semester 2\food_automation\include\transaction_status.hpp
+
+1748706079 d:\c++ projects\semester 2\food_automation\include\session_manager.hpp
+
+1748715463 source:d:\c++ projects\semester 2\food_automation\src\session_base.cpp
+	"../include/session_base.hpp"
+
+1748714297 d:\c++ projects\semester 2\food_automation\include\session_base.hpp
+	<iostream>
+	<time.h>
+	"session_status.hpp"
+
+1748706786 d:\c++ projects\semester 2\food_automation\include\session_status.hpp
 

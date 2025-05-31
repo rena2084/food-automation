@@ -189,13 +189,13 @@ ReservationStatus inputReservationStatus()
     string temp;
     getline(cin, temp);
     UTL(temp);
-    if(temp == "cancelled")
+    if(temp == "not paid")
     {
-        return ReservationStatus::CANCELLED;
+        return ReservationStatus::NOT_PAID;
     }
-    else if(temp == "faileed")
+    else if(temp == "failed")
     {
-        return ReservationStatus::FAILEED;
+        return ReservationStatus::FAILED;
     }
     else if(temp == "selected")
     {
@@ -465,10 +465,10 @@ string toString(ReserveDay reserveDay)
 string toString(ReservationStatus status)
 {
     switch (status){
-        case ReservationStatus::CANCELLED:
-            return "Cancelled";
-        case ReservationStatus::FAILEED:
-            return "Faileed";
+        case ReservationStatus::NOT_PAID:
+            return "Not paid";
+        case ReservationStatus::FAILED:
+            return "Failed";
         case ReservationStatus::SELECTED:
             return "Selected";
         case ReservationStatus::SUCCESS:
@@ -539,13 +539,13 @@ ReserveDay stringToReserveDay(string str)
 
 ReservationStatus stringToReservationStatus(string str)
 {
-    if(str == "Cancelled")
+    if(str == "Not paid")
     {
-        return ReservationStatus::CANCELLED;
+        return ReservationStatus::NOT_PAID;
     }
-    else if(str == "Faileed")
+    else if(str == "Failed")
     {
-        return ReservationStatus::FAILEED;
+        return ReservationStatus::FAILED;
     }
     else if(str == "Selected")
     {

@@ -17,6 +17,7 @@
 #include "./include/reservation_status.hpp"
 #include "./include/meal_type.hpp"
 #include "./include/admin.hpp"
+#include "./include/panel.hpp"
 
 
 #define EXCEPTION_LOCATION_X 0

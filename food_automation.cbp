@@ -32,6 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="data/admin_data.txt" />
+		<Unit filename="data/dining_halls_data.txt" />
+		<Unit filename="data/meals_data.txt" />
+		<Unit filename="data/reserves_data.txt" />
+		<Unit filename="data/side_item_data.txt" />
+		<Unit filename="data/students_data.txt" />
 		<Unit filename="food_automation.cbp" />
 		<Unit filename="food_automation.depend" />
 		<Unit filename="food_automation.layout" />
@@ -43,6 +49,7 @@
 		<Unit filename="include/reservation.hpp" />
 		<Unit filename="include/reservation_status.hpp" />
 		<Unit filename="include/reserve_day.hpp" />
+		<Unit filename="include/storage.hpp" />
 		<Unit filename="include/student.hpp" />
 		<Unit filename="include/user.hpp" />
 		<Unit filename="main.cpp" />
@@ -52,9 +59,11 @@
 		<Unit filename="src/meal.cpp" />
 		<Unit filename="src/panel.cpp" />
 		<Unit filename="src/reservation.cpp" />
+		<Unit filename="src/storage.cpp" />
 		<Unit filename="src/student.cpp" />
 		<Unit filename="src/system.cpp" />
 		<Unit filename="src/user.cpp" />
+		<Unit filename="view/login_page.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

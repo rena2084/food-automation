@@ -5,8 +5,10 @@
 #include <iomanip>
 #include <sstream>
 #include <vector>
+
 #define EXCEPTION_LOCATION_X 0
 #define EXCEPTION_LOCATION_Y 20
+
 using namespace std;
 
 void gotoxy(int, int);

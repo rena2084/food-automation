@@ -4,9 +4,9 @@
 //------ ReservationStatus Class --------
 enum class ReservationStatus{
     SUCCESS,
-    CANCELLED,
+    NOT_PAID,
     SELECTED,
-    FAILEED,
+    FAILED,
 };
 
 #endif // RESERVATION_STATUS_HPP
