@@ -3,13 +3,14 @@
 #include <string.h>
 using namespace std;
 
+void gotoxy(int, int);
 User newUser();
 float inputFloat();
 string inputString();
 bool inputBool();
 
 //------------------------------------ Student Class ------------------------------------
-Student::Student(string studentId, string email, string phone, float balance, bool isActive, vector<Reservation> reservations)
+Student::Student(unsigned int userID, string name, string lastName, string hashedPassword, string studentId, string email, string phone, float balance, bool isActive, vector<Reservation> reservations) : User(userID, name, lastName, hashedPassword)
 {
     try
     {
@@ -22,6 +23,7 @@ Student::Student(string studentId, string email, string phone, float balance, bo
     }
     catch(exception &e)
     {
+        gotoxy(EXCEPTION_LOCATION_X,EXCEPTION_LOCATION_Y);
         cerr << e.what();
     }
 }
@@ -180,16 +182,24 @@ string Student::getType()
 
 //------------------------ reserveMeal ------------------------
 
-void Student::reserveMeal(Meal)
+void Student::reserveMeal(Reservation reserve)
 {
-
+    _reserves.push_back(reserve);
 }
 
 //--------------------- cancelReservation ---------------------
 
-bool Student::cancelReservation(Reservation)
+bool Student::cancelReservation(Reservation reserves)
 {
-
+    reserves.setStatus(ReservationStatus::CANCELLED);
+    if(reserves.getStatus() == ReservationStatus::CANCELLED)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 //------------------------- activate --------------------------
@@ -210,7 +220,12 @@ void Student::deactivate()
 
 Student newStusent()
 {
+    User tempU = newUser();
     Student tempS;
+    tempS.setUserID(tempU.getUserID());
+    tempS.setName(tempU.getName());
+    tempS.setLastName(tempU.getLastName());
+    tempS.setHashedPassword(tempU.getHashedPassword());
     int counter = 1;
     while(true)
     {
@@ -245,6 +260,7 @@ Student newStusent()
         }
         catch(exception &e)
         {
+            gotoxy(EXCEPTION_LOCATION_X,EXCEPTION_LOCATION_Y);
             cerr << e.what();
         }
     }

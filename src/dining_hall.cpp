@@ -1,65 +1,44 @@
 #include "../include/dining_hall.hpp"
 #include <iostream>
+#define EXCEPTION_LOCATION_X 0
+#define EXCEPTION_LOCATION_Y 20
 using namespace std;
 
+void gotoxy(int, int);
 int inputInt();
 string inputString();
 bool checkingDiningHall(vector<DiningHall>, unsigned int);
 
 //---------------------------------- DiningHall Class -----------------------------------
 
-DiningHall::DiningHall(unsigned int hallId, vector<DiningHall> DHvector, string name, string address, unsigned int capacity)
+DiningHall::DiningHall(unsigned int hallId, string name, string address, unsigned int capacity)
 {
     try
     {
-        setHallId(hallId, DHvector);
+        setHallId(hallId);
         setName(name);
         setAddress(address);
         setCapacity(capacity);
     }
     catch(exception &e)
     {
+        gotoxy(EXCEPTION_LOCATION_X,EXCEPTION_LOCATION_Y);
         cerr << e.what();
     }
 }
 
 //-------------------- setters --------------------
-void DiningHall::setHallId(unsigned int hallId, vector<DiningHall> DHvector)
+void DiningHall::setHallId(unsigned int hallId)
 {
-    //120004
-    //first digit -> University ID
-    //second digit -> Dining hall gender
-    //last digit -> Dining hall ID
+    //4
 
-    string temp = to_string(hallId);
-    if(temp.length() == 6)
+    if(hallId <= 9 && hallId >= 1)
     {
-        if(temp[1] == '1' || temp[1] == '2')
-        {
-            if(temp[2] == '0' && temp[3] == '0' && temp[4] == '0')
-            {
-                if(!(checkingDiningHall(DHvector, hallId)))
-                {
-                    _hallId = hallId;
-                }
-                else
-                {
-                    throw runtime_error("\n\nError: The entered ID is duplicate!\n\n");
-                }
-            }
-            else
-            {
-                throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
-            }
-        }
-        else
-        {
-            throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
-        }
+        _hallId = hallId;
     }
     else
     {
-        throw domain_error("\n\nError: The number of digits in the ID is incorrect!\n\n");
+        throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
     }
 }
 void DiningHall::setName(string name)
@@ -149,7 +128,7 @@ void DiningHall::print()const
 
 //---------------------- newDiningHall ------------------------
 
-DiningHall newDiningHall(vector<DiningHall> DHvector)
+DiningHall newDiningHall()
 {
     DiningHall tempDH;
     int counter = 1;
@@ -160,7 +139,7 @@ DiningHall newDiningHall(vector<DiningHall> DHvector)
             switch (counter) {
                 case 1:
                     cout << "Hall ID: ";
-                    tempDH.setHallId(inputInt(), DHvector);
+                    tempDH.setHallId(inputInt());
                     counter++;
                 case 2:
                     cout << "Name: ";
@@ -182,6 +161,7 @@ DiningHall newDiningHall(vector<DiningHall> DHvector)
         }
         catch(exception &e)
         {
+            gotoxy(EXCEPTION_LOCATION_X,EXCEPTION_LOCATION_Y);
             cerr << e.what();
         }
     }

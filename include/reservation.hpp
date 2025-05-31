@@ -19,7 +19,7 @@ private:
     ReservationStatus _status;
     time_t _createdAt;
 public:
-    Reservation(unsigned int = 100021, ReservationStatus = ReservationStatus::SELECTED, time_t = time(nullptr));
+    Reservation(DiningHall diningHall, Meal meal, unsigned int = 999, ReservationStatus = ReservationStatus::SELECTED, time_t = time(nullptr));
     void print()const;
     string time_tToString(const time_t &)const;
 

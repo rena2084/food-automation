@@ -1,11 +1,28 @@
 #include "../include/user.hpp"
+#define EXCEPTION_LOCATION_X 0
+#define EXCEPTION_LOCATION_Y 20
 
+void gotoxy(int, int);
 int inputInt();
 string inputString();
 string inputPass();
 
 //------------------------------------- User Class --------------------------------------
-
+User::User(unsigned int userID, string name, string lastName, string hashedPassword)
+{
+    try
+    {
+        setUserID(userID);
+        setName(name);
+        setLastName(lastName);
+        setHashedPassword(hashedPassword);
+    }
+    catch(exception &e)
+    {
+        gotoxy(EXCEPTION_LOCATION_X,EXCEPTION_LOCATION_Y);
+        cerr << e.what();
+    }
+}
 
 //-------------------- setters --------------------
 void User::setUserID(unsigned int userID)
@@ -103,8 +120,8 @@ string User::getType()
 {
     return "unknown";
 }
-
 //-------------------------- newUser --------------------------
+
 
 User newUser()
 {
@@ -134,12 +151,12 @@ User newUser()
             }
             if(counter == 5)
             {
-                cout << tempU.getHashedPassword();
                 return tempU;
             }
         }
         catch(exception &e)
         {
+            gotoxy(EXCEPTION_LOCATION_X,EXCEPTION_LOCATION_Y);
             cerr << e.what();
         }
     }

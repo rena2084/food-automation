@@ -12,7 +12,7 @@ private:
     string _hashedPassword;
 
 public:
-
+    User(unsigned int = 00000000, string = "Unknown", string  = "Unknown", string  = "12345678");
     virtual void print()const;
     virtual string getType();
 

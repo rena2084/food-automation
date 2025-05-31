@@ -17,7 +17,7 @@ private:
     ReserveDay _reserveDay;
     vector<string> _sideItem;
 public:
-    Meal(unsigned int = 100001, vector<Meal> = {}, string = "Unknown", float = 15000.0f, bool = true, MealType = MealType::LUNCH, ReserveDay = ReserveDay::SATURDAY, vector<string> = {"not selected"});
+    Meal(unsigned int = 11, string = "Unknown", float = 15000.0f, bool = true, MealType = MealType::LUNCH, ReserveDay = ReserveDay::SATURDAY, vector<string> = {"not selected"});
     void activate();
     void deactivate();
     void print()const;
@@ -25,7 +25,7 @@ public:
     void addSideItem(string);
 
     //----- setters -----
-    void setMealID(unsigned int, vector<Meal>);
+    void setMealID(unsigned int);
     void setName(string);
     void setPrice(float);
     void setIsActive(bool);

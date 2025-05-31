@@ -1,8 +1,11 @@
 #include "../include/meal.hpp"
 #include <iostream>
 #include <string.h>
+#define EXCEPTION_LOCATION_X 0
+#define EXCEPTION_LOCATION_Y 20
 using namespace std;
 
+void gotoxy(int, int);
 int inputInt();
 float inputFloat();
 string inputString();
@@ -14,11 +17,11 @@ bool checkingMeal(vector<Meal>, unsigned int);
 
 //------------------------------------- Meal Class --------------------------------------
 
-Meal::Meal(unsigned int mealID, vector<Meal> Mvector, string name, float price, bool isActive, MealType mealType, ReserveDay reserveDay, vector<string> sideItem)
+Meal::Meal(unsigned int mealID, string name, float price, bool isActive, MealType mealType, ReserveDay reserveDay, vector<string> sideItem)
 {
     try
     {
-        setMealID(mealID, Mvector);
+        setMealID(mealID);
         setName(name);
         setPrice(price);
         setIsActive(isActive);
@@ -28,46 +31,23 @@ Meal::Meal(unsigned int mealID, vector<Meal> Mvector, string name, float price, 
     }
     catch(exception &e)
     {
+        gotoxy(EXCEPTION_LOCATION_X,EXCEPTION_LOCATION_Y);
         cerr << e.what();
     }
 }
 
 //-------------------- setters --------------------
-void Meal::setMealID(unsigned int mealID, vector<Meal> Mvector)
+void Meal::setMealID(unsigned int mealID)
 {
-    //100021
-    //first digit -> Food price range(1 or 2 or 3)
-    //last two digits -> Food ID
-
-    string temp = to_string(mealID);
-    if(temp.length() == 6)
+    //21
+    //string temp = to_string(mealID);
+    if(mealID <= 99 && mealID >= 11)
     {
-        if(temp[0] == '1' || temp[0] == '2' || temp[0] == '3')
-        {
-            if(temp[1] == '0' && temp[2] == '0' && temp[3] == '0')
-            {
-                if(!(checkingMeal(Mvector, mealID)))
-                {
-                    _mealID = mealID;
-                }
-                else
-                {
-                    throw runtime_error("\n\nError: The entered ID is duplicate!\n\n");
-                }
-            }
-            else
-            {
-                throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
-            }
-        }
-        else
-        {
-            throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
-        }
+        _mealID = mealID;
     }
     else
     {
-        throw domain_error("\n\nError: The number of digits in the ID is incorrect!\n\n");
+        throw invalid_argument("\n\nError: The entered ID is incorrect!\n\n");
     }
 }
 void Meal::setName(string name)
@@ -195,7 +175,7 @@ void Meal::addSideItem(string sideItem)
 
 //------------------------- newMeal ---------------------------
 
-Meal newMeal(vector<Meal> Mvector)
+Meal newMeal()
 {
     Meal tempM;
     int counter = 1;
@@ -206,7 +186,7 @@ Meal newMeal(vector<Meal> Mvector)
             switch (counter) {
                 case 1:
                     cout << "Meal ID: ";
-                    tempM.setMealID(inputInt(), Mvector);
+                    tempM.setMealID(inputInt());
                     counter++;
                 case 2:
                     cout << "Name: ";
@@ -232,6 +212,7 @@ Meal newMeal(vector<Meal> Mvector)
         }
         catch(exception &e)
         {
+            gotoxy(EXCEPTION_LOCATION_X,EXCEPTION_LOCATION_Y);
             cerr << e.what();
         }
     }

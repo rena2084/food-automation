@@ -4,12 +4,15 @@
 #include "../include/meal.hpp"
 #include <iostream>
 #include <string.h>
+#include <windows.h>
 #include <conio.h>
 #include <vector>
+#include <time.h>
+#include <sstream>
 
 using namespace std;
 
-
+void gotoxy(int, int);
 bool checkingMeal(vector<Meal>, unsigned int);
 
 //---------------------- UTL ----------------------
@@ -261,9 +264,6 @@ vector<string> inputStringVector()
     return tempVector;
 }
 
-
-
-
 //-------------------------- inputPass --------------------------
 
 string inputPass()
@@ -272,8 +272,20 @@ string inputPass()
     char ch;
     while((ch = _getch()) != '\r')
     {
-        temp += ch;
-        cout << "*";
+        if(ch == '\b')
+        {
+            if(!temp.empty())
+            {
+                temp.pop_back();
+                cout<<"\b \b";
+            }
+        }
+        else
+        {
+            temp += ch;
+            cout << "*";
+        }
+
     }
     if(!(temp.empty()))
     {
@@ -465,3 +477,101 @@ string toString(ReservationStatus status)
             throw invalid_argument("\n\nError: The input is invalid!\n\n");
     }
 }
+
+//--------------------------------------------------------------------------
+
+MealType stringToMealType(string str)
+{
+    if(str == "Breakfast")
+    {
+        return MealType::BREAKFAST;
+    }
+    else if(str == "Lunch")
+    {
+            return MealType::LUNCH;
+    }
+    else if(str == "Dinner")
+    {
+            return MealType::DINNER;
+    }
+    else
+    {
+            throw invalid_argument("\n\nError: The input is invalid!\n\n");
+    }
+}
+
+ReserveDay stringToReserveDay(string str)
+{
+    if(str == "Saturday")
+    {
+        return ReserveDay::SATURDAY;
+    }
+    else if(str == "Sunday")
+    {
+        return ReserveDay::SUNDAY;
+    }
+    else if(str == "Monday")
+    {
+        return ReserveDay::MONDAY;
+    }
+    else if(str == "Tuesday")
+    {
+        return ReserveDay::TUESDAY;
+    }
+    else if(str == "Wednesday")
+    {
+        return ReserveDay::WEDNESDAY;
+    }
+    else if(str == "Thursday")
+    {
+        return ReserveDay::THURSDAY;
+    }
+    else if(str == "Friday")
+    {
+        return ReserveDay::FRIDAY;
+    }
+    else
+    {
+        throw invalid_argument("\n\nError: The input is invalid!\n\n");
+    }
+}
+
+
+ReservationStatus stringToReservationStatus(string str)
+{
+    if(str == "Cancelled")
+    {
+        return ReservationStatus::CANCELLED;
+    }
+    else if(str == "Faileed")
+    {
+        return ReservationStatus::FAILEED;
+    }
+    else if(str == "Selected")
+    {
+        return ReservationStatus::SELECTED;
+    }
+    else if(str == "Success")
+    {
+        return ReservationStatus::SUCCESS;
+    }
+    else
+    {
+            throw invalid_argument("\n\nError: The input is invalid!\n\n");
+    }
+}
+
+time_t stringToTime(const string& dateStr)
+{
+    struct tm timeStruct = {};
+    istringstream ss(dateStr);
+
+    ss >> timeStruct.tm_year >> timeStruct.tm_mon >> timeStruct.tm_mday
+       >> timeStruct.tm_hour >> timeStruct.tm_min >> timeStruct.tm_sec;
+
+    timeStruct.tm_year -= 1900;
+    timeStruct.tm_mon -= 1;
+
+    return mktime(&timeStruct);
+}
+

@@ -1,4 +1,7 @@
+#include <iostream>
 #include <windows.h>
+
+using namespace std;
 
 //-------------------------- gotoxy --------------------------
 
@@ -29,3 +32,9 @@ void cursorStatus(bool status)
     curInfo.bVisible = status;
     SetConsoleCursorInfo(hStdOut, &curInfo);
 }
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+11 kabab 200 1 Lunch Saturday
+12 ghormeh 200 1 Lunch Sunday
+13 adasi 200 1 Breakfast Thursday
+14 ash 200 1 Dinner Friday
